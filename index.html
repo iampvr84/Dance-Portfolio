@@ -1200,21 +1200,16 @@ select { cursor: pointer; }
       <!-- Video 3 -->
       <div class="video-card" id="vc-3">
         <div class="video-embed-area" id="vea-3">
-          <div class="video-placeholder">
-            <div class="video-placeholder-icon"></div>
-            <div class="video-placeholder-label">Paste YouTube link below</div>
-          </div>
-        </div>
-        <div class="video-url-row">
-          <input type="url" class="video-url-input" id="vurl-3"
-            placeholder="https://www.youtube.com/watch?v=..."
-            oninput="embedYoutube(3)" />
-          <button class="video-url-clear" onclick="clearVideo(3)" title="Clear">✕</button>
+          <iframe class="video-embed"
+            src="https://www.youtube.com/embed/rEmFwQnpVDc"
+            title="Sringara Lahari" frameborder="0" allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+          </iframe>
         </div>
         <div class="video-meta">
-          <div class="video-event" contenteditable="true">Event Name · Year</div>
-          <div class="video-title" contenteditable="true">Performance Title</div>
-          <div class="video-desc"  contenteditable="true">Brief description of this performance…</div>
+          <div class="video-event">Natyanjali Event · Group Classical Category</div>
+          <div class="video-title">Sringara Lahari</div>
+          <div class="video-desc">Group performance</div>
         </div>
       </div>
 
