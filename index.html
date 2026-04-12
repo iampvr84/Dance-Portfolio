@@ -558,6 +558,88 @@ body {
 .margam-desc { font-size: 10px; color: var(--teal-100); letter-spacing: 1px; }
 
 /* ═══════════════════════════════════════
+   VIDEOS
+═══════════════════════════════════════ */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+.video-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.video-card::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-500), var(--gold-100));
+}
+.video-card { position: relative; }
+.video-embed {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--teal-800);
+  display: block;
+  border: none;
+}
+.video-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--teal-800);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 12px; cursor: pointer;
+  border: none;
+}
+.video-placeholder-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(186,117,23,0.25);
+  border: 1px solid var(--gold-500);
+  display: flex; align-items: center; justify-content: center;
+}
+.video-placeholder-icon::after {
+  content: '▶';
+  color: var(--gold-300); font-size: 18px; margin-left: 4px;
+}
+.video-placeholder-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal-100); text-align: center;
+}
+.video-meta { padding: 20px 24px 24px; }
+.video-event {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-500); font-weight: 600; margin-bottom: 6px;
+}
+.video-title {
+  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  color: var(--teal-800); margin-bottom: 4px; line-height: 1.3;
+}
+.video-desc {
+  font-size: 13px; color: var(--warm-gray); line-height: 1.7;
+}
+.video-how-to {
+  margin-top: 40px; padding: 20px 24px;
+  background: var(--teal-50); border: 1px solid var(--teal-100);
+  border-left: 3px solid var(--gold-300);
+}
+.video-how-to p {
+  font-size: 13px; color: var(--teal-700); line-height: 1.8;
+}
+.video-how-to code {
+  font-family: monospace; font-size: 12px;
+  background: rgba(8,80,65,0.08); padding: 2px 6px; border-radius: 3px;
+  color: var(--teal-800);
+}
+@media (max-width: 900px) {
+  .videos-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════
    CONTACT / BOOK
 ═══════════════════════════════════════ */
 .contact-grid {
@@ -717,9 +799,9 @@ select { cursor: pointer; }
     <a href="#journey">Journey</a>
     <a href="#guru">Guru &amp; School</a>
     <a href="#performances">Achievements</a>
+    <a href="#videos">Videos</a>
     <a href="#gallery">Gallery</a>
     <a href="#bharathanatyam">The Art</a>
-    <a href="#contact" class="nav-cta">Book</a>
   </nav>
 </header>
 
@@ -729,9 +811,10 @@ select { cursor: pointer; }
   <a href="#journey"        onclick="toggleMenu()">Journey</a>
   <a href="#guru"           onclick="toggleMenu()">Guru &amp; School</a>
   <a href="#performances"   onclick="toggleMenu()">Achievements</a>
+  <a href="#videos"         onclick="toggleMenu()">Videos</a>
   <a href="#gallery"        onclick="toggleMenu()">Gallery</a>
   <a href="#bharathanatyam" onclick="toggleMenu()">The Art</a>
-  <a href="#contact"        onclick="toggleMenu()">Book a Performance</a>
+  <a href="#contact"        onclick="toggleMenu()">Contact</a>
 </nav>
 
 
@@ -1065,6 +1148,97 @@ select { cursor: pointer; }
         <div class="award-title">[Award Name]</div>
         <div class="award-body">[Brief description of this award or recognition.]</div>
       </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+  VIDEOS — PERFORMANCES
+══════════════════════════════════════ -->
+<section id="videos" class="section-wrap">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Performances</div>
+    <h2 class="section-title reveal">Watch Vanshikasri Dance</h2>
+    <div class="gold-rule reveal"></div>
+    <p class="section-lead reveal">
+      A curated collection of performances — from school events and competitions
+      to festivals and temple stages.
+    </p>
+
+    <div class="videos-grid reveal">
+
+      <!--
+        HOW TO ADD A YOUTUBE VIDEO:
+        1. Go to the YouTube video
+        2. Click Share → Embed → Copy the src URL (looks like: https://www.youtube.com/embed/XXXXXXXXXXX)
+        3. Replace the <div class="video-placeholder"> block with:
+           <iframe class="video-embed" src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+             title="Video title" allowfullscreen
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+           </iframe>
+      -->
+
+      <!-- Video 1 -->
+      <div class="video-card">
+        <!-- REPLACE THIS BLOCK with your YouTube iframe -->
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon"></div>
+          <div class="video-placeholder-label">Add YouTube Video<br/><span style="font-size:9px;opacity:.6;">Paste embed URL in HTML</span></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-event">[Event Name · Year]</div>
+          <div class="video-title">[Performance Title — e.g., Varnam · Adi Talam]</div>
+          <div class="video-desc">[Brief description — e.g., "Performed at the Annual Sabah, Chennai. A full Varnam depicting the journey of devotion."]</div>
+        </div>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="video-card">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon"></div>
+          <div class="video-placeholder-label">Add YouTube Video<br/><span style="font-size:9px;opacity:.6;">Paste embed URL in HTML</span></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-event">[Event Name · Year]</div>
+          <div class="video-title">[Performance Title — e.g., Tillana · Rupaka Talam]</div>
+          <div class="video-desc">[Brief description of the performance and occasion.]</div>
+        </div>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="video-card">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon"></div>
+          <div class="video-placeholder-label">Add YouTube Video<br/><span style="font-size:9px;opacity:.6;">Paste embed URL in HTML</span></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-event">[Event Name · Year]</div>
+          <div class="video-title">[Performance Title — e.g., Alarippu &amp; Jatiswaram]</div>
+          <div class="video-desc">[Brief description of the performance and occasion.]</div>
+        </div>
+      </div>
+
+      <!-- Video 4 -->
+      <div class="video-card">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon"></div>
+          <div class="video-placeholder-label">Add YouTube Video<br/><span style="font-size:9px;opacity:.6;">Paste embed URL in HTML</span></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-event">[Event Name · Year]</div>
+          <div class="video-title">[Performance Title — e.g., Arangetram Highlights]</div>
+          <div class="video-desc">[Brief description of the performance and occasion.]</div>
+        </div>
+      </div>
+
+    </div><!-- /videos-grid -->
+
+    <div class="video-how-to reveal">
+      <p><strong>How to add your YouTube videos:</strong> Open <code>index.html</code>, find the <code>&lt;!-- Video 1 --&gt;</code> comment, and replace the <code>video-placeholder</code> div with:<br/>
+      <code>&lt;iframe class="video-embed" src="https://www.youtube.com/embed/<strong>VIDEO_ID</strong>" title="Title" allowfullscreen&gt;&lt;/iframe&gt;</code><br/>
+      Get the Video ID from YouTube → Share → Embed → copy the URL after <code>/embed/</code></p>
     </div>
 
   </div>
@@ -1416,9 +1590,10 @@ select { cursor: pointer; }
       <li><a href="#journey">Journey</a></li>
       <li><a href="#guru">Guru &amp; School</a></li>
       <li><a href="#performances">Achievements</a></li>
+      <li><a href="#videos">Videos</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#bharathanatyam">The Art</a></li>
-      <li><a href="#contact">Book</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
   <div class="footer-col">
