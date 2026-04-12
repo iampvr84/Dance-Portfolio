@@ -6,680 +6,1303 @@
 <title>Vanshikasri Palanivel Rajan | Bharathanatyam</title>
 <meta name="description" content="Vanshikasri Palanivel Rajan — classical Bharathanatyam dancer. A portfolio of devotion, discipline, and grace." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --teal-900: #04342C;
-    --teal-800: #085041;
-    --teal-700: #0F6E56;
-    --teal-500: #1D9E75;
-    --teal-300: #5DCAA5;
-    --teal-100: #9FE1CB;
-    --teal-50:  #E1F5EE;
-    --gold-700: #633806;
-    --gold-600: #854F0B;
-    --gold-500: #BA7517;
-    --gold-300: #EF9F27;
-    --gold-100: #FAC775;
-    --gold-50:  #FAEEDA;
-    --cream:    #FAF7F2;
-    --warm-gray:#5a5550;
-    --border:   #d4c9b8;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Jost', sans-serif;
-  }
+/* ═══════════════════════════════════════
+   CSS VARIABLES & RESET
+═══════════════════════════════════════ */
+:root {
+  --teal-900: #04342C;
+  --teal-800: #085041;
+  --teal-700: #0F6E56;
+  --teal-600: #137A5F;
+  --teal-500: #1D9E75;
+  --teal-300: #5DCAA5;
+  --teal-100: #9FE1CB;
+  --teal-50:  #E1F5EE;
+  --gold-700: #633806;
+  --gold-600: #854F0B;
+  --gold-500: #BA7517;
+  --gold-300: #EF9F27;
+  --gold-100: #FAC775;
+  --gold-50:  #FAEEDA;
+  --cream:    #FAF7F2;
+  --cream-dark: #F0EBE0;
+  --text-dark: #1E1A15;
+  --text-mid:  #3D3730;
+  --warm-gray: #5a5550;
+  --border:    #d4c9b8;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Jost', sans-serif;
+}
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--sans);
-    background: var(--cream);
-    color: #2a2520;
-    font-size: 16px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--text-dark);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--teal-300); border-radius: 2px; }
 
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--cream); }
-  ::-webkit-scrollbar-thumb { background: var(--teal-300); border-radius: 2px; }
+/* ═══════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════ */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  background: rgba(250,247,242,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+.logo {
+  font-family: var(--serif);
+  font-size: 20px; font-weight: 400; letter-spacing: 1.5px;
+  color: var(--teal-800); text-decoration: none;
+}
+.logo em { color: var(--gold-500); font-style: normal; }
+.main-nav { display: flex; align-items: center; gap: 2rem; }
+.main-nav a {
+  font-size: 10.5px; font-weight: 500; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--warm-gray);
+  text-decoration: none; transition: color 0.2s;
+  padding-bottom: 2px; border-bottom: 1px solid transparent;
+}
+.main-nav a:hover,
+.main-nav a.active { color: var(--teal-700); border-bottom-color: var(--gold-300); }
+.nav-cta {
+  padding: 9px 22px;
+  background: var(--gold-500); color: #fff !important;
+  font-size: 10px; letter-spacing: 2px; font-weight: 600;
+  border: none !important; text-transform: uppercase;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--gold-600) !important; border-bottom: none !important; }
 
-  /* ── NAV ── */
-  header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 4rem;
-    height: 72px;
-    background: var(--cream);
-    border-bottom: 1px solid var(--border);
-  }
-  .logo {
-    font-family: var(--serif);
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--teal-800);
-    text-decoration: none;
-    letter-spacing: 1px;
-  }
-  .logo span { color: var(--gold-500); }
-  nav { display: flex; gap: 2.5rem; align-items: center; }
-  nav a {
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    text-decoration: none;
-    transition: color 0.2s;
-    padding-bottom: 2px;
-    border-bottom: 1px solid transparent;
-  }
-  nav a:hover { color: var(--teal-700); border-bottom-color: var(--teal-300); }
-  .nav-book {
-    padding: 10px 24px;
-    background: var(--gold-500);
-    color: white !important;
-    border: none !important;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-bottom: none !important;
-    transition: background 0.2s !important;
-  }
-  .nav-book:hover { background: var(--gold-600) !important; color: white !important; }
+/* Hamburger */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 6px; border: none; background: none;
+}
+.hamburger span {
+  width: 22px; height: 2px; background: var(--teal-800);
+  display: block; transition: 0.3s;
+}
+.mobile-nav {
+  display: none;
+  position: fixed; top: 68px; left: 0; right: 0; z-index: 199;
+  background: var(--cream); border-bottom: 1px solid var(--border);
+  padding: 1.5rem 3rem; flex-direction: column; gap: 1.2rem;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--warm-gray); text-decoration: none; font-weight: 500;
+}
 
-  /* ── HERO — SPLIT LAYOUT ── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 72px;
-    position: relative;
-    overflow: hidden;
-  }
+/* ═══════════════════════════════════════
+   SHARED SECTION STYLES
+═══════════════════════════════════════ */
+.section-wrap { padding: 100px 3rem; }
+.section-wrap.alt { background: var(--cream-dark); }
+.section-wrap.dark { background: var(--teal-800); }
+.section-inner { max-width: 1120px; margin: 0 auto; }
 
-  /* LEFT — Photo */
-  .hero-photo-side {
-    position: relative;
-    background: var(--teal-800);
-    overflow: hidden;
-  }
-  .hero-photo-side img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-  }
-  /* Placeholder shown when no photo yet */
-  .hero-photo-placeholder {
-    width: 100%;
-    height: 100%;
-    min-height: calc(100vh - 72px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    background: var(--teal-800);
-    cursor: pointer;
-  }
-  .hero-photo-placeholder input[type="file"] { display: none; }
-  .upload-ring {
-    width: 90px; height: 90px;
-    border-radius: 50%;
-    border: 1px solid var(--gold-500);
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-  }
-  .upload-ring::before {
-    content: '';
-    position: absolute; inset: -8px;
-    border-radius: 50%;
-    border: 1px dashed rgba(186,117,23,0.35);
-  }
-  .upload-plus { font-size: 32px; color: var(--gold-300); line-height: 1; font-weight: 300; }
-  .upload-label {
-    font-family: var(--sans);
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--teal-100);
-  }
-  .upload-sub {
-    font-size: 10px;
-    color: var(--teal-300);
-    letter-spacing: 1px;
-  }
-  /* Gradient overlay on photo bottom-left */
-  .hero-photo-side::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 40%;
-    background: linear-gradient(to top, rgba(8,80,65,0.6) 0%, transparent 100%);
-    pointer-events: none;
-  }
-  /* Temple silhouettes at bottom of photo */
-  .hero-gopurams {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0.15;
-  }
+.eyebrow {
+  font-size: 10px; font-weight: 600; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--gold-500);
+  display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem;
+}
+.eyebrow::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--gold-500); display: inline-block; flex-shrink: 0;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 52px); font-weight: 400;
+  color: var(--teal-800); line-height: 1.15; margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+.section-title.on-dark { color: var(--teal-50); }
+.section-lead {
+  font-size: 15px; color: var(--warm-gray); line-height: 1.9;
+  max-width: 640px; margin-bottom: 2rem;
+}
+.section-lead.on-dark { color: var(--teal-100); }
 
-  /* RIGHT — Text content */
-  .hero-text-side {
-    background: var(--teal-800);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 64px 80px 56px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-pattern {
-    position: absolute; inset: 0;
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(93,202,165,0.05) 39px, rgba(93,202,165,0.05) 40px),
-      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(93,202,165,0.05) 39px, rgba(93,202,165,0.05) 40px);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    font-family: var(--sans);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gold-100);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    opacity: 0;
-    animation: fadeUp 1s 0.3s forwards;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    width: 28px; height: 1px;
-    background: var(--gold-500);
-    display: inline-block;
-  }
-  .hero-name {
-    font-family: var(--serif);
-    font-size: clamp(36px, 4.5vw, 64px);
-    font-weight: 300;
-    color: var(--teal-50);
-    line-height: 1.1;
-    letter-spacing: 3px;
-    margin-bottom: 1.25rem;
-    opacity: 0;
-    animation: fadeUp 1s 0.5s forwards;
-  }
-  .hero-tagline {
-    font-family: var(--serif);
-    font-size: clamp(15px, 1.8vw, 19px);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--teal-100);
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
-    opacity: 0;
-    animation: fadeUp 1s 0.7s forwards;
-  }
-  .hero-divider {
-    width: 52px; height: 1px;
-    background: var(--gold-300);
-    margin-bottom: 2.5rem;
-    opacity: 0;
-    animation: fadeUp 1s 0.85s forwards;
-  }
-  .hero-intro {
-    font-size: 14px;
-    color: var(--teal-100);
-    line-height: 1.9;
-    max-width: 420px;
-    margin-bottom: 3rem;
-    opacity: 0;
-    animation: fadeUp 1s 0.95s forwards;
-  }
-  .hero-ctas {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 1s 1.1s forwards;
-  }
-  .btn-primary {
-    padding: 13px 32px;
-    background: var(--gold-500);
-    color: white;
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--gold-600); transform: translateY(-2px); }
-  .btn-ghost {
-    padding: 12px 32px;
-    background: transparent;
-    color: var(--teal-100);
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1px solid rgba(93,202,165,0.3);
-    transition: border-color 0.2s, color 0.2s, transform 0.2s;
-    display: inline-block;
-  }
-  .btn-ghost:hover { border-color: var(--gold-300); color: var(--gold-100); transform: translateY(-2px); }
+.gold-rule {
+  width: 48px; height: 2px;
+  background: var(--gold-300);
+  margin: 0 0 2.5rem;
+}
 
-  /* ── STATS STRIP ── */
-  .stats-strip {
-    background: var(--teal-700);
-    border-top: 2px solid var(--gold-500);
-    border-bottom: 2px solid var(--gold-500);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .stat-cell {
-    padding: 32px 24px;
-    text-align: center;
-    border-right: 1px solid rgba(93,202,165,0.2);
-  }
-  .stat-cell:last-child { border-right: none; }
-  .stat-n {
-    font-family: var(--serif);
-    font-size: 48px;
-    font-weight: 300;
-    color: var(--gold-100);
-    line-height: 1;
-    display: block;
-  }
-  .stat-l {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--teal-100);
-    margin-top: 6px;
-    display: block;
-  }
+/* Photo placeholder boxes */
+.photo-box {
+  background: var(--teal-800);
+  border: 1px dashed rgba(186,117,23,0.4);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 12px; cursor: pointer;
+  position: relative; overflow: hidden;
+}
+.photo-box img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+.photo-box-icon {
+  font-size: 28px; color: var(--gold-300); line-height: 1;
+  position: relative; z-index: 1;
+}
+.photo-box-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal-100); text-align: center; position: relative; z-index: 1;
+  padding: 0 12px;
+}
+.photo-box input[type="file"] { display: none; }
 
-  /* ── ABOUT SECTION ── */
-  .about-section {
-    padding: 120px 4rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .about-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 0 80px;
-    align-items: start;
-  }
-  .about-left {
-    padding-top: 6px;
-    position: sticky;
-    top: 100px;
-  }
-  .section-tag {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--teal-500);
-    font-weight: 500;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .section-tag::before {
-    content: '';
-    display: inline-block;
-    width: 20px; height: 1px;
-    background: var(--teal-300);
-  }
-  .about-num {
-    font-family: var(--serif);
-    font-size: 80px;
-    font-weight: 300;
-    color: var(--teal-50);
-    line-height: 1;
-    display: block;
-    margin-top: 0.5rem;
-    letter-spacing: -2px;
-    user-select: none;
-  }
-  .about-right {}
-  .about-subheading {
-    font-family: var(--serif);
-    font-size: 13px;
-    font-style: italic;
-    letter-spacing: 2px;
-    color: var(--gold-500);
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
-  .about-heading {
-    font-family: var(--serif);
-    font-size: clamp(30px, 4vw, 44px);
-    font-weight: 400;
-    color: var(--teal-800);
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.5px;
-  }
-  .about-body {
-    font-size: 15px;
-    color: var(--warm-gray);
-    line-height: 1.9;
-    max-width: 620px;
-    margin-bottom: 2rem;
-  }
-  /* Milestone timeline */
-  .about-milestones {
-    margin-top: 2.5rem;
-    border-left: 1px solid var(--teal-100);
-    padding-left: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  .milestone {
-    position: relative;
-  }
-  .milestone::before {
-    content: '';
-    position: absolute;
-    left: -33px; top: 6px;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--gold-300);
-    border: 2px solid var(--cream);
-  }
-  .milestone-year {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold-500);
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-  .milestone-text {
-    font-family: var(--serif);
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--teal-800);
-    line-height: 1.3;
-  }
-  .milestone-sub {
-    font-size: 13px;
-    color: var(--warm-gray);
-    margin-top: 2px;
-  }
+/* Buttons */
+.btn {
+  display: inline-block; text-decoration: none;
+  font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; transition: all 0.2s;
+}
+.btn-gold {
+  padding: 13px 36px; background: var(--gold-500); color: #fff;
+}
+.btn-gold:hover { background: var(--gold-600); transform: translateY(-2px); }
+.btn-outline-light {
+  padding: 12px 36px; background: transparent;
+  color: var(--teal-100); border: 1px solid rgba(93,202,165,0.35);
+}
+.btn-outline-light:hover {
+  border-color: var(--gold-300); color: var(--gold-100); transform: translateY(-2px);
+}
+.btn-outline-dark {
+  padding: 12px 36px; background: transparent;
+  color: var(--teal-700); border: 1px solid var(--teal-300);
+}
+.btn-outline-dark:hover {
+  border-color: var(--gold-500); color: var(--gold-600);
+}
 
-  /* ── QUOTE ── */
-  .quote-divider {
-    background: var(--teal-50);
-    border-top: 1px solid var(--teal-100);
-    border-bottom: 1px solid var(--teal-100);
-    padding: 72px 4rem;
-    text-align: center;
-  }
-  .quote-text {
-    font-family: var(--serif);
-    font-size: clamp(20px, 3vw, 30px);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--teal-700);
-    max-width: 700px;
-    margin: 0 auto 16px;
-    line-height: 1.5;
-  }
-  .quote-source {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold-500);
-  }
+/* ═══════════════════════════════════════
+   1. COVER / HERO
+═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  padding-top: 68px;
+}
+/* Left — full-height photo */
+.hero-photo {
+  position: relative;
+  background: var(--teal-800); overflow: hidden;
+}
+.hero-photo .photo-box {
+  width: 100%; height: 100%; min-height: calc(100vh - 68px);
+}
+.hero-photo::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+  background: linear-gradient(to top, rgba(4,52,44,0.7) 0%, transparent 100%);
+  pointer-events: none;
+}
+.hero-gopurams {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  pointer-events: none; z-index: 2; opacity: 0.12;
+}
+/* Right — text */
+.hero-text {
+  background: var(--teal-800);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 60px; position: relative; overflow: hidden;
+}
+.hero-grid-lines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(93,202,165,0.04) 39px, rgba(93,202,165,0.04) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(93,202,165,0.04) 39px, rgba(93,202,165,0.04) 40px);
+}
+.hero-eyebrow {
+  font-size: 10px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold-100); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 14px;
+  opacity: 0; animation: fadeUp 1s 0.3s forwards;
+}
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold-500); }
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(38px, 4.8vw, 66px); font-weight: 300;
+  color: var(--teal-50); line-height: 1.1; letter-spacing: 2px;
+  margin-bottom: 1.2rem;
+  opacity: 0; animation: fadeUp 1s 0.5s forwards;
+}
+.hero-tagline {
+  font-family: var(--serif); font-size: clamp(15px, 1.8vw, 19px);
+  font-weight: 300; font-style: italic;
+  color: var(--teal-100); line-height: 1.6; margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeUp 1s 0.7s forwards;
+}
+.hero-rule {
+  width: 48px; height: 1px; background: var(--gold-300); margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeUp 1s 0.85s forwards;
+}
+.hero-intro {
+  font-size: 14px; color: var(--teal-100); line-height: 1.95;
+  max-width: 400px; margin-bottom: 3rem;
+  opacity: 0; animation: fadeUp 1s 0.95s forwards;
+}
+.hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 1s 1.1s forwards;
+}
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--teal-900);
-    border-top: 3px solid var(--gold-500);
-    padding: 60px 4rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-  }
-  .footer-about-name {
-    font-family: var(--serif);
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--teal-50);
-    margin-bottom: 12px;
-  }
-  .footer-about-desc {
-    font-size: 13px;
-    color: var(--teal-100);
-    line-height: 1.8;
-    margin-bottom: 16px;
-  }
-  .footer-email {
-    font-size: 12px;
-    color: var(--gold-300);
-    text-decoration: none;
-    letter-spacing: 0.5px;
-  }
-  .footer-email:hover { color: var(--gold-100); }
-  .footer-col-title {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--teal-300);
-    margin-bottom: 20px;
-    font-weight: 500;
-  }
-  .footer-links { list-style: none; }
-  .footer-links li { margin-bottom: 10px; }
-  .footer-links a {
-    font-size: 13px;
-    color: var(--teal-100);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--gold-100); }
-  .footer-bottom {
-    background: var(--teal-900);
-    border-top: 1px solid rgba(93,202,165,0.1);
-    padding: 20px 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer-copy { font-size: 11px; color: rgba(159,225,203,0.4); letter-spacing: 1px; }
-  .footer-sanskrit { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--gold-500); }
+/* Stats strip */
+.stats-strip {
+  background: var(--teal-700);
+  border-top: 2px solid var(--gold-500);
+  border-bottom: 2px solid var(--gold-500);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.stat-cell {
+  padding: 28px 20px; text-align: center;
+  border-right: 1px solid rgba(93,202,165,0.2);
+}
+.stat-cell:last-child { border-right: none; }
+.stat-n {
+  font-family: var(--serif); font-size: 44px; font-weight: 300;
+  color: var(--gold-100); line-height: 1; display: block;
+}
+.stat-l {
+  font-size: 9.5px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--teal-100); margin-top: 5px; display: block;
+}
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+/* ═══════════════════════════════════════
+   2. ABOUT ME
+═══════════════════════════════════════ */
+.about-grid {
+  display: grid; grid-template-columns: 340px 1fr;
+  gap: 80px; align-items: start;
+}
+.about-photo-wrap {
+  position: sticky; top: 88px;
+}
+.about-photo-wrap .photo-box {
+  width: 100%; aspect-ratio: 3/4; border-radius: 2px;
+}
+.about-content {}
+.about-body {
+  font-size: 15px; color: var(--warm-gray); line-height: 1.95;
+  margin-bottom: 1.6rem;
+}
+.about-highlight {
+  background: var(--teal-50); border-left: 3px solid var(--gold-300);
+  padding: 20px 24px; margin: 2rem 0;
+  font-family: var(--serif); font-size: 18px; font-style: italic;
+  color: var(--teal-800); line-height: 1.6;
+}
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    header { padding: 0 1.5rem; }
-    nav { gap: 1.2rem; }
-    nav a { font-size: 10px; letter-spacing: 1px; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-photo-side { min-height: 65vw; }
-    .hero-photo-placeholder { min-height: 65vw; }
-    .hero-text-side { padding: 52px 1.5rem; }
-    .about-inner { grid-template-columns: 1fr; gap: 24px; }
-    .about-left { position: static; }
-    .about-num { font-size: 48px; }
-    .about-section { padding: 72px 1.5rem; }
-    .stats-strip { grid-template-columns: repeat(2, 1fr); }
-    footer { grid-template-columns: 1fr 1fr; padding: 40px 1.5rem; }
-    .footer-bottom { padding: 16px 1.5rem; flex-direction: column; gap: 8px; }
-    .quote-divider { padding: 48px 1.5rem; }
-  }
-  @media (max-width: 480px) {
-    .hero-ctas { flex-direction: column; }
-    footer { grid-template-columns: 1fr; }
-    .stats-strip { grid-template-columns: 1fr 1fr; }
-  }
+/* ═══════════════════════════════════════
+   3. DANCE JOURNEY TIMELINE
+═══════════════════════════════════════ */
+.timeline {
+  position: relative;
+  padding-left: 48px;
+  border-left: 2px solid var(--teal-100);
+  display: flex; flex-direction: column; gap: 44px;
+  max-width: 780px;
+}
+.timeline-item { position: relative; }
+.timeline-dot {
+  position: absolute;
+  left: -56px; top: 6px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--gold-300);
+  border: 3px solid var(--cream-dark);
+  box-shadow: 0 0 0 3px var(--gold-100);
+}
+.timeline-year {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-500); font-weight: 600; margin-bottom: 6px;
+}
+.timeline-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 400;
+  color: var(--teal-800); line-height: 1.3; margin-bottom: 6px;
+}
+.timeline-desc { font-size: 14px; color: var(--warm-gray); line-height: 1.8; }
+
+/* ═══════════════════════════════════════
+   4. GURU & SCHOOL
+═══════════════════════════════════════ */
+.guru-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+}
+.guru-card {
+  background: #fff; border: 1px solid var(--border);
+  padding: 44px 40px; position: relative;
+}
+.guru-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold-500), var(--gold-100));
+}
+.guru-role {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-500); font-weight: 600; margin-bottom: 12px;
+}
+.guru-name {
+  font-family: var(--serif); font-size: 28px; font-weight: 400;
+  color: var(--teal-800); margin-bottom: 8px; line-height: 1.2;
+}
+.guru-detail {
+  font-size: 13px; color: var(--warm-gray); line-height: 1.8;
+}
+.tradition-block {
+  background: var(--teal-50); padding: 44px 40px; border: 1px solid var(--teal-100);
+  grid-column: 1 / -1;
+}
+.tradition-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+  margin-top: 28px;
+}
+.tradition-item {}
+.tradition-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal-500); font-weight: 600; margin-bottom: 6px;
+}
+.tradition-value {
+  font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--teal-800);
+}
+
+/* ═══════════════════════════════════════
+   5. PERFORMANCES & ACHIEVEMENTS
+═══════════════════════════════════════ */
+.perf-list { display: flex; flex-direction: column; gap: 0; }
+.perf-row {
+  display: grid; grid-template-columns: 120px 1fr auto;
+  align-items: baseline; gap: 24px;
+  padding: 28px 0; border-bottom: 1px solid var(--border);
+}
+.perf-row:first-child { border-top: 1px solid var(--border); }
+.perf-year {
+  font-family: var(--serif); font-size: 28px; font-weight: 300;
+  color: var(--teal-300); line-height: 1;
+}
+.perf-info {}
+.perf-title {
+  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  color: var(--teal-800); margin-bottom: 4px;
+}
+.perf-venue { font-size: 13px; color: var(--warm-gray); }
+.perf-tag {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold-500); font-weight: 600; white-space: nowrap;
+  padding: 5px 14px; border: 1px solid var(--gold-100);
+  align-self: center;
+}
+
+.awards-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 60px;
+}
+.award-card {
+  padding: 32px 28px; background: var(--teal-800); position: relative;
+  overflow: hidden;
+}
+.award-card::after {
+  content: '★';
+  position: absolute; right: -8px; top: -8px;
+  font-size: 80px; color: rgba(239,159,39,0.06); line-height: 1;
+}
+.award-year {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal-300); margin-bottom: 10px;
+}
+.award-title {
+  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  color: var(--teal-50); margin-bottom: 8px;
+}
+.award-body { font-size: 13px; color: var(--teal-100); line-height: 1.7; }
+
+/* ═══════════════════════════════════════
+   6. PHOTO GALLERY
+═══════════════════════════════════════ */
+.gallery-intro {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 40px; gap: 32px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 340px;
+  gap: 16px;
+}
+.gallery-item {
+  position: relative; overflow: hidden;
+}
+.gallery-item .photo-box { width: 100%; height: 100%; }
+.gallery-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.gallery-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(4,52,44,0.9) 0%, transparent 100%);
+  padding: 24px 20px 16px;
+  transform: translateY(100%); transition: transform 0.3s;
+}
+.gallery-item:hover .gallery-caption { transform: translateY(0); }
+.gallery-cap-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-100); margin-bottom: 4px;
+}
+.gallery-cap-title {
+  font-family: var(--serif); font-size: 17px; color: #fff;
+}
+
+/* Replace-photo hint */
+.replace-hint {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold-300); margin-top: 20px; text-align: center;
+}
+
+/* ═══════════════════════════════════════
+   7. MEANING OF BHARATHANATYAM
+═══════════════════════════════════════ */
+.bha-hero {
+  text-align: center; max-width: 720px; margin: 0 auto 80px;
+}
+.bha-word {
+  display: flex; justify-content: center; gap: 0; margin-bottom: 40px;
+}
+.bha-letter {
+  text-align: center; padding: 0 28px;
+  border-right: 1px solid var(--teal-100);
+}
+.bha-letter:last-child { border-right: none; }
+.bha-char {
+  font-family: var(--serif); font-size: 52px; font-weight: 300;
+  color: var(--teal-50); display: block; line-height: 1;
+}
+.bha-sub {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-300); margin-top: 10px; display: block;
+}
+.bha-meaning {
+  font-family: var(--serif); font-size: 12px; font-style: italic;
+  color: var(--teal-100); margin-top: 4px; display: block;
+}
+
+.bha-pillars {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  margin: 64px 0;
+}
+.bha-pillar {
+  padding: 48px 36px; background: rgba(15,110,86,0.3);
+  border: 1px solid rgba(93,202,165,0.15); text-align: center;
+}
+.bha-pillar-num {
+  font-family: var(--serif); font-size: 56px; font-weight: 300;
+  color: rgba(239,159,39,0.3); line-height: 1; display: block; margin-bottom: 12px;
+}
+.bha-pillar-title {
+  font-family: var(--serif); font-size: 26px; font-weight: 400;
+  color: var(--teal-50); margin-bottom: 8px;
+}
+.bha-pillar-sub {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-300); margin-bottom: 14px;
+}
+.bha-pillar-body { font-size: 13px; color: var(--teal-100); line-height: 1.8; }
+
+.margam-strip {
+  border-top: 1px solid rgba(93,202,165,0.2);
+  padding-top: 64px; max-width: 1120px; margin: 0 auto;
+}
+.margam-title {
+  font-family: var(--serif); font-size: 13px; font-style: italic;
+  letter-spacing: 2px; color: var(--gold-300); text-transform: uppercase;
+  text-align: center; margin-bottom: 36px;
+}
+.margam-sequence {
+  display: flex; align-items: flex-start; justify-content: center;
+  gap: 0; flex-wrap: wrap;
+}
+.margam-item {
+  text-align: center; padding: 0 28px;
+  border-right: 1px solid rgba(93,202,165,0.15);
+  flex: 1; min-width: 100px;
+}
+.margam-item:last-child { border-right: none; }
+.margam-num {
+  font-family: var(--serif); font-size: 30px; font-weight: 300;
+  color: rgba(239,159,39,0.4); display: block; line-height: 1; margin-bottom: 8px;
+}
+.margam-name {
+  font-family: var(--serif); font-size: 16px; font-weight: 400;
+  color: var(--teal-50); display: block; margin-bottom: 4px;
+}
+.margam-desc { font-size: 10px; color: var(--teal-100); letter-spacing: 1px; }
+
+/* ═══════════════════════════════════════
+   CONTACT / BOOK
+═══════════════════════════════════════ */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start;
+}
+.contact-info {}
+.contact-detail { margin-bottom: 32px; }
+.contact-detail-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-500); font-weight: 600; margin-bottom: 8px;
+}
+.contact-detail-value {
+  font-family: var(--serif); font-size: 20px; color: var(--teal-800);
+}
+.contact-detail-value a {
+  color: var(--teal-700); text-decoration: none;
+  border-bottom: 1px solid var(--teal-300);
+}
+.contact-form {}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group.full { grid-column: 1 / -1; }
+label {
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--teal-600); font-weight: 600;
+}
+input, select, textarea {
+  font-family: var(--sans); font-size: 14px; color: var(--text-dark);
+  background: transparent; border: none; border-bottom: 1.5px solid var(--border);
+  padding: 10px 0; outline: none; transition: border-color 0.2s; width: 100%;
+}
+input:focus, select:focus, textarea:focus { border-bottom-color: var(--gold-500); }
+textarea { resize: vertical; min-height: 100px; }
+select { cursor: pointer; }
+.form-submit { margin-top: 32px; }
+
+/* ═══════════════════════════════════════
+   QUOTE DIVIDER
+═══════════════════════════════════════ */
+.quote-strip {
+  background: var(--teal-50);
+  border-top: 1px solid var(--teal-100); border-bottom: 1px solid var(--teal-100);
+  padding: 64px 3rem; text-align: center;
+}
+.quote-text {
+  font-family: var(--serif); font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 300; font-style: italic; color: var(--teal-700);
+  max-width: 680px; margin: 0 auto 14px; line-height: 1.55;
+}
+.quote-attr { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-500); }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+.site-footer {
+  background: var(--teal-900); border-top: 3px solid var(--gold-500);
+  padding: 60px 3rem 0;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
+}
+.footer-brand-name {
+  font-family: var(--serif); font-size: 22px; font-weight: 400;
+  color: var(--teal-50); margin-bottom: 12px;
+}
+.footer-brand-desc { font-size: 13px; color: var(--teal-100); line-height: 1.8; margin-bottom: 16px; }
+.footer-email { font-size: 12px; color: var(--gold-300); text-decoration: none; }
+.footer-email:hover { color: var(--gold-100); }
+.footer-col h4 {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal-300); margin-bottom: 20px; font-weight: 600;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul a { font-size: 13px; color: var(--teal-100); text-decoration: none; }
+.footer-col ul a:hover { color: var(--gold-100); }
+.footer-base {
+  background: var(--teal-900); border-top: 1px solid rgba(93,202,165,0.08);
+  padding: 20px 3rem; margin-top: 48px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-copy { font-size: 11px; color: rgba(159,225,203,0.4); letter-spacing: 1px; }
+.footer-sanskrit { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--gold-500); }
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 280px 1fr; gap: 48px; }
+  .guru-grid { grid-template-columns: 1fr; }
+  .tradition-block { grid-column: unset; }
+}
+@media (max-width: 900px) {
+  .site-header { padding: 0 1.5rem; }
+  .main-nav { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav { padding: 1.5rem; }
+  .section-wrap { padding: 72px 1.5rem; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-photo .photo-box { min-height: 60vw; }
+  .hero-text { padding: 52px 1.5rem; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-wrap { position: static; max-width: 320px; }
+  .perf-row { grid-template-columns: 80px 1fr; }
+  .perf-tag { display: none; }
+  .awards-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 240px; }
+  .gallery-item:first-child { grid-column: span 2; }
+  .bha-word { gap: 0; }
+  .bha-letter { padding: 0 16px; }
+  .bha-char { font-size: 36px; }
+  .bha-pillars { grid-template-columns: 1fr; gap: 8px; }
+  .margam-sequence { flex-direction: column; align-items: center; }
+  .margam-item { border-right: none; border-bottom: 1px solid rgba(93,202,165,0.15); padding: 16px 0; width: 100%; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .site-footer { grid-template-columns: 1fr; padding: 48px 1.5rem 0; }
+  .footer-base { flex-direction: column; gap: 8px; padding: 16px 1.5rem; }
+  .tradition-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .hero-ctas { flex-direction: column; }
+  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; }
+  .gallery-item:first-child { grid-column: span 1; grid-row: span 1; }
+  .bha-pillars { grid-template-columns: 1fr; }
+  .quote-strip { padding: 48px 1.5rem; }
+  .perf-row { grid-template-columns: 1fr; gap: 6px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ── HEADER ── -->
-<header>
-  <a class="logo" href="#">Vanshikasri <span>·</span> Bharathanatyam</a>
-  <nav>
+<!-- ══════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <a class="logo" href="#top">Vanshikasri <em>·</em> Bharathanatyam</a>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="main-nav" id="main-nav">
     <a href="#about">About</a>
-    <a href="pages/gallery.html">Gallery</a>
-    <a href="pages/repertoire.html">Repertoire</a>
-    <a href="pages/contact.html" class="nav-book">Book Performance</a>
+    <a href="#journey">Journey</a>
+    <a href="#guru">Guru &amp; School</a>
+    <a href="#performances">Achievements</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#bharathanatyam">The Art</a>
+    <a href="#contact" class="nav-cta">Book</a>
   </nav>
 </header>
 
-<!-- ── HERO — SPLIT ── -->
-<section class="hero" id="top">
+<!-- Mobile Nav -->
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="#about"          onclick="toggleMenu()">About</a>
+  <a href="#journey"        onclick="toggleMenu()">Journey</a>
+  <a href="#guru"           onclick="toggleMenu()">Guru &amp; School</a>
+  <a href="#performances"   onclick="toggleMenu()">Achievements</a>
+  <a href="#gallery"        onclick="toggleMenu()">Gallery</a>
+  <a href="#bharathanatyam" onclick="toggleMenu()">The Art</a>
+  <a href="#contact"        onclick="toggleMenu()">Book a Performance</a>
+</nav>
 
-  <!-- LEFT — Photo -->
-  <div class="hero-photo-side" id="photo-side">
 
-    <!-- Replace this div with <img> when you have the photo:
-         <img src="images/hero/vanshikasri.jpg" alt="Vanshikasri Palanivel Rajan" />
-    -->
-    <div class="hero-photo-placeholder" onclick="document.getElementById('photo-upload').click()">
-      <div class="upload-ring"><span class="upload-plus">+</span></div>
-      <div class="upload-label">Add Vanshikasri's Photo</div>
-      <div class="upload-sub">Click to upload · JPG or PNG</div>
-      <input type="file" id="photo-upload" accept="image/*" onchange="loadPhoto(event)" />
+<!-- ══════════════════════════════════════
+  1. COVER PAGE
+══════════════════════════════════════ -->
+<section id="top">
+  <div class="hero">
+
+    <!-- Photo side -->
+    <div class="hero-photo" id="hero-photo-side">
+      <!--
+        PHOTO INSTRUCTIONS:
+        To add a photo, replace the entire .photo-box div below with:
+        <img src="images/hero/vanshikasri.jpg"
+             alt="Vanshikasri Palanivel Rajan"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+        Ideal photo: Araimandi pose or expressive mudra, portrait orientation
+      -->
+      <div class="photo-box" style="height:100%;min-height:calc(100vh - 68px);"
+           onclick="document.getElementById('hero-file').click()">
+        <div class="photo-box-icon">⊕</div>
+        <div class="photo-box-label">Add Cover Photo<br/>Araimandi or Expressive Mudra<br/><span style="font-size:9px;opacity:.6;">Click to upload · JPG / PNG · Portrait orientation</span></div>
+        <input type="file" id="hero-file" accept="image/*" onchange="loadHeroPhoto(event)" />
+      </div>
+
+      <!-- Temple gopuram silhouette -->
+      <svg class="hero-gopurams" viewBox="0 0 800 200" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="55" width="58" height="145" fill="#E1F5EE"/>
+        <rect x="11" y="45" width="76" height="12" rx="2" fill="#E1F5EE"/>
+        <rect x="4"  y="32" width="90" height="14" rx="2" fill="#E1F5EE"/>
+        <rect x="14" y="18" width="70" height="16" rx="2" fill="#E1F5EE"/>
+        <rect x="26" y="5"  width="46" height="15" rx="4" fill="#E1F5EE"/>
+        <circle cx="49" cy="3" r="5" fill="#EF9F27"/>
+        <rect x="722" y="55" width="58" height="145" fill="#E1F5EE"/>
+        <rect x="713" y="45" width="76" height="12" rx="2" fill="#E1F5EE"/>
+        <rect x="706" y="32" width="90" height="14" rx="2" fill="#E1F5EE"/>
+        <rect x="716" y="18" width="70" height="16" rx="2" fill="#E1F5EE"/>
+        <rect x="728" y="5"  width="46" height="15" rx="4" fill="#E1F5EE"/>
+        <circle cx="751" cy="3" r="5" fill="#EF9F27"/>
+      </svg>
     </div>
 
-    <!-- Temple gopurams -->
-    <svg class="hero-gopurams" viewBox="0 0 800 220" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
-      <rect x="20" y="60" width="60" height="160" fill="#E1F5EE"/>
-      <rect x="10" y="50" width="80" height="13" rx="2" fill="#E1F5EE"/>
-      <rect x="2"  y="37" width="96" height="14" rx="2" fill="#E1F5EE"/>
-      <rect x="12" y="22" width="76" height="17" rx="2" fill="#E1F5EE"/>
-      <rect x="24" y="8"  width="52" height="16" rx="4" fill="#E1F5EE"/>
-      <circle cx="50" cy="5" r="5" fill="#EF9F27"/>
-      <rect x="120" y="110" width="36" height="110" fill="#E1F5EE"/>
-      <rect x="112" y="102" width="52" height="10" rx="2" fill="#E1F5EE"/>
-      <rect x="106" y="92"  width="64" height="12" rx="2" fill="#E1F5EE"/>
-      <rect x="113" y="78"  width="50" height="16" rx="2" fill="#E1F5EE"/>
-      <circle cx="138" cy="73" r="4" fill="#EF9F27"/>
-      <rect x="700" y="60" width="60" height="160" fill="#E1F5EE"/>
-      <rect x="690" y="50" width="80" height="13" rx="2" fill="#E1F5EE"/>
-      <rect x="682" y="37" width="96" height="14" rx="2" fill="#E1F5EE"/>
-      <rect x="692" y="22" width="76" height="17" rx="2" fill="#E1F5EE"/>
-      <rect x="704" y="8"  width="52" height="16" rx="4" fill="#E1F5EE"/>
-      <circle cx="730" cy="5" r="5" fill="#EF9F27"/>
-      <rect x="644" y="110" width="36" height="110" fill="#E1F5EE"/>
-      <rect x="636" y="102" width="52" height="10" rx="2" fill="#E1F5EE"/>
-      <rect x="630" y="92"  width="64" height="12" rx="2" fill="#E1F5EE"/>
-      <rect x="637" y="78"  width="50" height="16" rx="2" fill="#E1F5EE"/>
-      <circle cx="662" cy="73" r="4" fill="#EF9F27"/>
-    </svg>
-  </div>
-
-  <!-- RIGHT — Text -->
-  <div class="hero-text-side">
-    <div class="hero-pattern"></div>
-    <div class="hero-eyebrow">Bharathanatyam · Classical Dance</div>
-    <h1 class="hero-name">Vanshikasri<br/>Palanivel Rajan</h1>
-    <p class="hero-tagline">"Nrityam sarvakāla sundaram — Dance is beautiful for all time"</p>
-    <div class="hero-divider"></div>
-    <p class="hero-intro">
-      A young classical dancer trained in the Bharathanatyam tradition —
-      where every gesture, every rhythm, and every expression is a devotion
-      offered to the divine. Her journey is one of discipline, grace, and
-      an ever-deepening love for this ancient art.
-    </p>
-    <div class="hero-ctas">
-      <a class="btn-primary" href="#about">Her Story</a>
-      <a class="btn-ghost" href="pages/gallery.html">View Gallery</a>
+    <!-- Text side -->
+    <div class="hero-text">
+      <div class="hero-grid-lines"></div>
+      <div class="hero-eyebrow">Bharathanatyam · Classical Dance</div>
+      <h1 class="hero-name">Vanshikasri<br/>Palanivel Rajan</h1>
+      <p class="hero-tagline">"Where movement meets devotion,<br/>and rhythm becomes prayer."</p>
+      <div class="hero-rule"></div>
+      <p class="hero-intro">
+        A young classical Bharathanatyam dancer rooted in the ancient temple traditions
+        of Tamil Nadu — where every adavu, every mudra, and every glance carries
+        the weight of devotion and the lightness of grace.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#about">Her Story</a>
+        <a class="btn btn-outline-light" href="#gallery">View Gallery</a>
+      </div>
     </div>
   </div>
 
+  <!-- Stats strip -->
+  <div class="stats-strip">
+    <div class="stat-cell">
+      <span class="stat-n">7</span>
+      <span class="stat-l">Years of Training</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-n">12</span>
+      <span class="stat-l">Performances</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-n">5</span>
+      <span class="stat-l">Awards</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-n">18</span>
+      <span class="stat-l">Repertoire Pieces</span>
+    </div>
+  </div>
 </section>
 
-<!-- ── STATS ── -->
-<div class="stats-strip">
-  <div class="stat-cell"><span class="stat-n">7</span><span class="stat-l">Years of training</span></div>
-  <div class="stat-cell"><span class="stat-n">12</span><span class="stat-l">Performances</span></div>
-  <div class="stat-cell"><span class="stat-n">5</span><span class="stat-l">Awards</span></div>
-  <div class="stat-cell"><span class="stat-n">18</span><span class="stat-l">Repertoire pieces</span></div>
-</div>
 
-<!-- ── ABOUT ── -->
-<section class="about-section" id="about">
-  <div class="about-inner">
+<!-- ══════════════════════════════════════
+  2. ABOUT ME
+══════════════════════════════════════ -->
+<section id="about" class="section-wrap">
+  <div class="section-inner">
+    <div class="about-grid">
 
-    <div class="about-left">
-      <div class="section-tag">About</div>
-      <span class="about-num">01</span>
+      <div class="about-photo-wrap">
+        <!--
+          PHOTO: Add a close-up or 3/4 portrait photo here.
+          Replace .photo-box with:
+          <img src="images/about/portrait.jpg" alt="Vanshikasri" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;" />
+        -->
+        <div class="photo-box" style="aspect-ratio:3/4;"
+             onclick="document.getElementById('about-file').click()">
+          <div class="photo-box-icon">⊕</div>
+          <div class="photo-box-label">Portrait Photo<br/><span style="font-size:9px;opacity:.6;">3:4 ratio · costume or practice</span></div>
+          <input type="file" id="about-file" accept="image/*" onchange="loadPhoto('about-file','about-photo-side')" />
+        </div>
+      </div>
+
+      <div class="about-content reveal">
+        <div class="eyebrow">About Me</div>
+        <h2 class="section-title">A dancer shaped by devotion &amp; discipline</h2>
+        <div class="gold-rule"></div>
+
+        <p class="about-body">
+          Vanshikasri Palanivel Rajan began her journey into Bharathanatyam at the age of [X],
+          captivated by the language of the body — the way a single gesture could tell a story,
+          the way a held gaze could carry an emotion across an entire stage.
+        </p>
+        <p class="about-body">
+          Born into a family that values culture and classical tradition, she took her first
+          steps under the guidance of [Guru Name], and has not looked back since.
+          [Add 2-3 sentences about her personality, what dance means to her, what motivates her.]
+        </p>
+        <p class="about-body">
+          Today, Vanshikasri is a student, a performer, and a passionate keeper of this ancient
+          art form — practicing daily, performing at sabhas and festivals, and carrying forward
+          a tradition that is thousands of years old.
+        </p>
+
+        <div class="about-highlight">
+          "Dance is not something I do — it is something I am. Every class, every practice,
+          every performance is an offering."
+          <br/><br/>
+          <span style="font-size:13px;font-style:normal;letter-spacing:2px;font-family:var(--sans);color:var(--gold-500);">— Vanshikasri</span>
+        </div>
+
+        <a class="btn btn-outline-dark" href="#journey">Her Journey →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+  3. DANCE JOURNEY TIMELINE
+══════════════════════════════════════ -->
+<section id="journey" class="section-wrap alt">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Dance Journey</div>
+    <h2 class="section-title reveal">Milestones along the path</h2>
+    <div class="gold-rule reveal"></div>
+
+    <div class="timeline reveal">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Age [X] · [Year]</div>
+        <div class="timeline-title">First steps in Bharathanatyam</div>
+        <div class="timeline-desc">Joined [School Name] and began training under [Guru Name].
+          First encounter with the fundamental adavus — the building blocks of the classical form.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">[Year]</div>
+        <div class="timeline-title">First stage performance</div>
+        <div class="timeline-desc">Performed Alarippu and Jatiswaram at [Event Name / School Annual Day].
+          The first time the stage lights fell on her — and she knew this was her calling.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">[Year]</div>
+        <div class="timeline-title">Competitions &amp; recognition begin</div>
+        <div class="timeline-desc">Entered [Competition Name] and received [Award/Rank].
+          Began representing her school and institution at local and regional cultural festivals.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">[Year]</div>
+        <div class="timeline-title">Advanced training — Margam sequence</div>
+        <div class="timeline-desc">Began studying the full Margam — Pushpanjali, Alarippu, Jatiswaram,
+          Shabdam, Varnam, Padam, Keertanam, and Tillana. Each piece a deeper exploration of
+          rhythm, emotion, and expression.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Arangetram · [Year — if completed]</div>
+        <div class="timeline-title">Solo debut recital</div>
+        <div class="timeline-desc">The Arangetram — the formal debut — marked the transition from
+          student to performer. A full evening of solo dance before family, teachers, and an audience.
+          [Update if completed or upcoming.]</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Present · [Year]</div>
+        <div class="timeline-title">Continuing the journey</div>
+        <div class="timeline-desc">Performing at sabhas, festivals, and competitions.
+          Each appearance on stage a deepening conversation between the dancer, the music,
+          and the divine tradition she carries.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+  4. GURU & SCHOOL
+══════════════════════════════════════ -->
+<section id="guru" class="section-wrap">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Guru &amp; School</div>
+    <h2 class="section-title reveal">The lineage behind the dancer</h2>
+    <div class="gold-rule reveal"></div>
+    <p class="section-lead reveal">
+      In Bharathanatyam, the Guru–Shishya relationship is sacred. The guru does not merely
+      teach steps — they transmit a living tradition, instilling discipline, devotion,
+      and the depth of the art into the student.
+    </p>
+
+    <div class="guru-grid reveal">
+
+      <div class="guru-card">
+        <div class="guru-role">Guru · Teacher</div>
+        <div class="guru-name">[Guru's Full Name]</div>
+        <div class="guru-detail">
+          <p>[Guru's background — e.g., "Trained under the Kalakshetra tradition for over X years.
+          An accomplished performer and teacher based in [City]."</p>
+          <br/>
+          <p>[Add 1-2 more sentences about the guru's style, lineage, or specialisation.]</p>
+        </div>
+      </div>
+
+      <div class="guru-card">
+        <div class="guru-role">School · Institution</div>
+        <div class="guru-name">[School Name]</div>
+        <div class="guru-detail">
+          <p>[School description — e.g., "Established in [Year], [School Name] has been nurturing
+          classical dance talent in [City/Region] for over X years."</p>
+          <br/>
+          <p>[Add details: location, style taught, number of students, events organised, etc.]</p>
+        </div>
+      </div>
+
+      <div class="tradition-block">
+        <div class="eyebrow">Training Tradition</div>
+        <div class="tradition-grid">
+          <div class="tradition-item">
+            <div class="tradition-label">Style / Baani</div>
+            <div class="tradition-value">[e.g., Pandanallur / Kalakshetra / Vazhuvoor]</div>
+          </div>
+          <div class="tradition-item">
+            <div class="tradition-label">Years of Training</div>
+            <div class="tradition-value">[X] Years · [Since Year]</div>
+          </div>
+          <div class="tradition-item">
+            <div class="tradition-label">Location</div>
+            <div class="tradition-value">[City, State / Country]</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+  5. PERFORMANCES & ACHIEVEMENTS
+══════════════════════════════════════ -->
+<section id="performances" class="section-wrap alt">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Performances &amp; Achievements</div>
+    <h2 class="section-title reveal">On stage &amp; on the podium</h2>
+    <div class="gold-rule reveal"></div>
+
+    <!-- Performances List -->
+    <div class="perf-list reveal">
+      <div class="perf-row">
+        <div class="perf-year">[Year]</div>
+        <div class="perf-info">
+          <div class="perf-title">[Event Name · e.g., Annual Sabah Performance]</div>
+          <div class="perf-venue">[Venue / Organisation Name] · [City]</div>
+        </div>
+        <div class="perf-tag">Performance</div>
+      </div>
+      <div class="perf-row">
+        <div class="perf-year">[Year]</div>
+        <div class="perf-info">
+          <div class="perf-title">[Event Name · e.g., Kalai Thiruvizha Cultural Festival]</div>
+          <div class="perf-venue">[Venue / Organisation Name] · [City]</div>
+        </div>
+        <div class="perf-tag">Festival</div>
+      </div>
+      <div class="perf-row">
+        <div class="perf-year">[Year]</div>
+        <div class="perf-info">
+          <div class="perf-title">[Event Name · e.g., Temple Uthsavam]</div>
+          <div class="perf-venue">[Temple / Venue Name] · [City]</div>
+        </div>
+        <div class="perf-tag">Temple</div>
+      </div>
+      <div class="perf-row">
+        <div class="perf-year">[Year]</div>
+        <div class="perf-info">
+          <div class="perf-title">[Add more performances here]</div>
+          <div class="perf-venue">[Venue] · [City]</div>
+        </div>
+        <div class="perf-tag">Performance</div>
+      </div>
     </div>
 
-    <div class="about-right">
-      <div class="about-subheading">The artist's journey</div>
-      <h2 class="about-heading">Grace born from devotion and discipline</h2>
+    <!-- Awards -->
+    <div class="eyebrow reveal" style="margin-top:72px;">Awards &amp; Recognition</div>
+    <div class="awards-grid reveal">
+      <div class="award-card">
+        <div class="award-year">[Year]</div>
+        <div class="award-title">[Award Name]</div>
+        <div class="award-body">[Brief description — e.g., "First place in solo classical dance
+          category at [Competition Name], judged by [panel]."</div>
+      </div>
+      <div class="award-card">
+        <div class="award-year">[Year]</div>
+        <div class="award-title">[Award Name]</div>
+        <div class="award-body">[Brief description of this award or recognition.]</div>
+      </div>
+      <div class="award-card">
+        <div class="award-year">[Year]</div>
+        <div class="award-title">[Award Name]</div>
+        <div class="award-body">[Brief description of this award or recognition.]</div>
+      </div>
+    </div>
 
-      <p class="about-body">
-        Vanshikasri Palanivel Rajan began her Bharathanatyam journey at a young age,
-        drawn by the rhythmic language of this ancient classical art form. Rooted in the
-        temple traditions of Tamil Nadu, Bharathanatyam weaves together nritta (pure dance),
-        nritya (expressive dance), and natya (drama) into a seamless offering to the divine.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+  QUOTE DIVIDER
+══════════════════════════════════════ -->
+<div class="quote-strip">
+  <p class="quote-text">"Where the hand goes, the eyes follow; where the eyes go, the mind follows; where the mind goes, the heart is moved."</p>
+  <div class="quote-attr">The Natyashastra</div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+  6. PHOTO GALLERY
+══════════════════════════════════════ -->
+<section id="gallery" class="section-wrap">
+  <div class="section-inner">
+
+    <div class="gallery-intro reveal">
+      <div>
+        <div class="eyebrow">Photo Gallery</div>
+        <h2 class="section-title" style="margin-bottom:0;">Key Poses &amp; Moments</h2>
+      </div>
+      <p style="max-width:340px;font-size:14px;color:var(--warm-gray);line-height:1.8;">
+        A visual record of poses, performances, and the living art of Bharathanatyam.
       </p>
-      <p class="about-body">
-        Under the guidance of her guru, Vanshikasri has developed a practice that honours
-        the classical form while channelling genuine emotion and devotion. Every adavu,
-        every mudra, every glance of the eye is an expression of years of patient training
-        and deep love for the art.
-      </p>
-      <p class="about-body">
-        Her performances span sabhas, cultural festivals, and temple stages — each one
-        a conversation between the dancer, the music, and the divine presence she invites
-        into the space.
+    </div>
+
+    <div class="gallery-grid reveal">
+
+      <!-- Slot 1: Featured large (spans 2 cols × 2 rows) -->
+      <div class="gallery-item">
+        <div class="photo-box" style="width:100%;height:100%;"
+             onclick="document.getElementById('gal-0').click()">
+          <div class="photo-box-icon">⊕</div>
+          <div class="photo-box-label">Featured Pose<br/><span style="font-size:9px;opacity:.6;">Full body · Araimandi or Nataraja pose</span></div>
+          <input type="file" id="gal-0" accept="image/*" onchange="loadGallery(event,0)" />
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-cap-label">Featured</div>
+          <div class="gallery-cap-title">Araimandi — The Classical Stance</div>
+        </div>
+      </div>
+
+      <!-- Slot 2 -->
+      <div class="gallery-item">
+        <div class="photo-box" style="width:100%;height:100%;"
+             onclick="document.getElementById('gal-1').click()">
+          <div class="photo-box-icon">⊕</div>
+          <div class="photo-box-label">Mudra Close-up<br/><span style="font-size:9px;opacity:.6;">Hand gesture detail · alta + jewellery</span></div>
+          <input type="file" id="gal-1" accept="image/*" onchange="loadGallery(event,1)" />
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-cap-label">Mudra</div>
+          <div class="gallery-cap-title">Sacred Hand Gestures</div>
+        </div>
+      </div>
+
+      <!-- Slot 3 -->
+      <div class="gallery-item">
+        <div class="photo-box" style="width:100%;height:100%;"
+             onclick="document.getElementById('gal-2').click()">
+          <div class="photo-box-icon">⊕</div>
+          <div class="photo-box-label">Abhinaya Expression<br/><span style="font-size:9px;opacity:.6;">Eyes, expression, storytelling</span></div>
+          <input type="file" id="gal-2" accept="image/*" onchange="loadGallery(event,2)" />
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-cap-label">Abhinaya</div>
+          <div class="gallery-cap-title">The Language of Expression</div>
+        </div>
+      </div>
+
+      <!-- Slot 4 -->
+      <div class="gallery-item">
+        <div class="photo-box" style="width:100%;height:100%;"
+             onclick="document.getElementById('gal-3').click()">
+          <div class="photo-box-icon">⊕</div>
+          <div class="photo-box-label">Full Costume<br/><span style="font-size:9px;opacity:.6;">Saree, jewellery, makeup, flowers</span></div>
+          <input type="file" id="gal-3" accept="image/*" onchange="loadGallery(event,3)" />
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-cap-label">Costume</div>
+          <div class="gallery-cap-title">The Classical Attire</div>
+        </div>
+      </div>
+
+      <!-- Slot 5 -->
+      <div class="gallery-item">
+        <div class="photo-box" style="width:100%;height:100%;"
+             onclick="document.getElementById('gal-4').click()">
+          <div class="photo-box-icon">⊕</div>
+          <div class="photo-box-label">Stage Performance<br/><span style="font-size:9px;opacity:.6;">Live performance shot</span></div>
+          <input type="file" id="gal-4" accept="image/*" onchange="loadGallery(event,4)" />
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-cap-label">Performance</div>
+          <div class="gallery-cap-title">Live on Stage</div>
+        </div>
+      </div>
+
+      <!-- Slot 6 -->
+      <div class="gallery-item">
+        <div class="photo-box" style="width:100%;height:100%;"
+             onclick="document.getElementById('gal-5').click()">
+          <div class="photo-box-icon">⊕</div>
+          <div class="photo-box-label">With Guru<br/><span style="font-size:9px;opacity:.6;">Guru-Shishya moment</span></div>
+          <input type="file" id="gal-5" accept="image/*" onchange="loadGallery(event,5)" />
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-cap-label">Guru &amp; Student</div>
+          <div class="gallery-cap-title">The Sacred Bond</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="replace-hint">Replace placeholders with actual photos · JPG or PNG · Portrait orientation recommended</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+  7. MEANING OF BHARATHANATYAM
+══════════════════════════════════════ -->
+<section id="bharathanatyam" class="section-wrap dark">
+  <div class="section-inner">
+
+    <div class="bha-hero reveal">
+      <div class="eyebrow" style="justify-content:center;color:var(--gold-100);">The Art Form</div>
+      <h2 class="section-title on-dark" style="text-align:center;max-width:560px;margin:0 auto 1rem;">
+        What is Bharathanatyam?
+      </h2>
+      <p class="section-lead on-dark" style="text-align:center;margin:0 auto 2.5rem;">
+        One of India's oldest classical dance forms — a sacred offering of body, rhythm, and soul
+        rooted in the temples of Tamil Nadu.
       </p>
 
-      <div class="about-milestones">
-        <div class="milestone">
-          <div class="milestone-year">Age 5</div>
-          <div class="milestone-text">First steps in Bharathanatyam</div>
-          <div class="milestone-sub">Introduced to the art under her guru's guidance</div>
+      <!-- BHA-RA-TA-NATYAM breakdown -->
+      <div class="bha-word">
+        <div class="bha-letter">
+          <span class="bha-char">BHA</span>
+          <span class="bha-sub">Bhava</span>
+          <span class="bha-meaning">Emotion · Expression</span>
         </div>
-        <div class="milestone">
-          <div class="milestone-year">Training</div>
-          <div class="milestone-text">Mastery of the Margam</div>
-          <div class="milestone-sub">Alarippu · Jatiswaram · Varnam · Padam · Tillana</div>
+        <div class="bha-letter">
+          <span class="bha-char">RA</span>
+          <span class="bha-sub">Raga</span>
+          <span class="bha-meaning">Melody · Music</span>
         </div>
-        <div class="milestone">
-          <div class="milestone-year">Arangetram</div>
-          <div class="milestone-text">Debut solo recital</div>
-          <div class="milestone-sub">A milestone marking the transition from student to performer</div>
+        <div class="bha-letter">
+          <span class="bha-char">TA</span>
+          <span class="bha-sub">Tala</span>
+          <span class="bha-meaning">Rhythm · Beat</span>
         </div>
-        <div class="milestone">
-          <div class="milestone-year">Ongoing</div>
-          <div class="milestone-text">Performances &amp; competitions</div>
-          <div class="milestone-sub">Representing the classical tradition on stage</div>
+        <div class="bha-letter">
+          <span class="bha-char">NATYAM</span>
+          <span class="bha-sub">Natya</span>
+          <span class="bha-meaning">Drama · Dance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Three Pillars -->
+    <div class="bha-pillars reveal">
+      <div class="bha-pillar">
+        <span class="bha-pillar-num">01</span>
+        <div class="bha-pillar-title">Nritta</div>
+        <div class="bha-pillar-sub">Pure Dance</div>
+        <p class="bha-pillar-body">
+          The abstract, technical dimension — pure movement and footwork with no
+          narrative content. Adavus (rhythmic syllables translated into body geometry),
+          precise angles of limbs, and complex footwork patterns make up Nritta.
+        </p>
+      </div>
+      <div class="bha-pillar">
+        <span class="bha-pillar-num">02</span>
+        <div class="bha-pillar-title">Nritya</div>
+        <div class="bha-pillar-sub">Expressive Dance</div>
+        <p class="bha-pillar-body">
+          The language of emotion — where Abhinaya (expression) brings stories to life
+          through mudras (hand gestures), facial expressions (navarasas), and the movement
+          of eyes. Stories from the Puranas, Ramayana, and devotional poetry are narrated
+          through Nritya.
+        </p>
+      </div>
+      <div class="bha-pillar">
+        <span class="bha-pillar-num">03</span>
+        <div class="bha-pillar-title">Natya</div>
+        <div class="bha-pillar-sub">Dance Drama</div>
+        <p class="bha-pillar-body">
+          The theatrical dimension — where the dancer embodies multiple characters,
+          giving voice to entire epics through costume, expression, and movement.
+          Natya is where dance becomes drama, and the stage becomes a sacred space.
+        </p>
+      </div>
+    </div>
+
+    <!-- Margam Sequence -->
+    <div class="margam-strip reveal">
+      <div class="margam-title">The Traditional Margam — the Path of a Performance</div>
+      <div class="margam-sequence">
+        <div class="margam-item">
+          <span class="margam-num">1</span>
+          <span class="margam-name">Pushpanjali</span>
+          <span class="margam-desc">Flower Offering</span>
+        </div>
+        <div class="margam-item">
+          <span class="margam-num">2</span>
+          <span class="margam-name">Alarippu</span>
+          <span class="margam-desc">Blossoming</span>
+        </div>
+        <div class="margam-item">
+          <span class="margam-num">3</span>
+          <span class="margam-name">Jatiswaram</span>
+          <span class="margam-desc">Pure rhythm</span>
+        </div>
+        <div class="margam-item">
+          <span class="margam-num">4</span>
+          <span class="margam-name">Shabdam</span>
+          <span class="margam-desc">Narrative begins</span>
+        </div>
+        <div class="margam-item">
+          <span class="margam-num">5</span>
+          <span class="margam-name">Varnam</span>
+          <span class="margam-desc">Centrepiece</span>
+        </div>
+        <div class="margam-item">
+          <span class="margam-num">6</span>
+          <span class="margam-name">Padam</span>
+          <span class="margam-desc">Devotion</span>
+        </div>
+        <div class="margam-item">
+          <span class="margam-num">7</span>
+          <span class="margam-name">Tillana</span>
+          <span class="margam-desc">Grand finale</span>
         </div>
       </div>
     </div>
@@ -687,64 +1310,223 @@
   </div>
 </section>
 
-<!-- ── QUOTE ── -->
-<div class="quote-divider">
-  <p class="quote-text">"Where the hand goes, the eyes follow; where the eyes go, the mind follows; where the mind goes, the heart is moved."</p>
-  <div class="quote-source">The Natyashastra</div>
-</div>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <div>
-    <div class="footer-about-name">Vanshikasri Palanivel Rajan</div>
-    <p class="footer-about-desc">A classical Bharathanatyam dancer — a living record of discipline, devotion, and artistic growth in the classical tradition of Tamil Nadu.</p>
-    <a class="footer-email" href="mailto:contact@vanshikasri.com">contact@vanshikasri.com</a>
+<!-- ══════════════════════════════════════
+  CONTACT / BOOK
+══════════════════════════════════════ -->
+<section id="contact" class="section-wrap">
+  <div class="section-inner">
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="reveal">
+        <div class="eyebrow">Book a Performance</div>
+        <h2 class="section-title">Connect &amp; Collaborate</h2>
+        <div class="gold-rule"></div>
+        <p class="section-lead">
+          For performance bookings, cultural events, temple programmes,
+          school presentations, or any inquiries, please get in touch.
+        </p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-value">
+            <a href="mailto:hello@vanshikasri.com">hello@vanshikasri.com</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">Location</div>
+          <div class="contact-detail-value">[City, State / Country]</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">Available for</div>
+          <div class="contact-detail-value" style="font-size:15px;font-family:var(--sans);line-height:1.9;color:var(--warm-gray);">
+            Sabhas &amp; Festivals<br/>
+            Temple Programmes<br/>
+            Cultural Evenings<br/>
+            School &amp; College Events<br/>
+            Private Celebrations
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="reveal">
+        <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <div style="display:none"><input name="bot-field" /></div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Your Name</label>
+              <input id="f-name" name="name" type="text" placeholder="Full name" required />
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email Address</label>
+              <input id="f-email" name="email" type="email" placeholder="email@example.com" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full">
+              <label for="f-subject">Type of Inquiry</label>
+              <select id="f-subject" name="subject">
+                <option>Performance Booking</option>
+                <option>Cultural Event</option>
+                <option>Temple Programme</option>
+                <option>School / College Event</option>
+                <option>Private Celebration</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full">
+              <label for="f-message">Your Message</label>
+              <textarea id="f-message" name="message" placeholder="Tell us about your event — date, location, and any details…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-gold">Send Message</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
   </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+  FOOTER
+══════════════════════════════════════ -->
+<footer class="site-footer">
   <div>
-    <div class="footer-col-title">Navigate</div>
-    <ul class="footer-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="pages/gallery.html">Gallery</a></li>
-      <li><a href="pages/repertoire.html">Repertoire</a></li>
-      <li><a href="pages/contact.html">Contact</a></li>
+    <div class="footer-brand-name">Vanshikasri Palanivel Rajan</div>
+    <p class="footer-brand-desc">A classical Bharathanatyam dancer — a living record of devotion, discipline, and the ancient traditions of Tamil Nadu.</p>
+    <a class="footer-email" href="mailto:hello@vanshikasri.com">hello@vanshikasri.com</a>
+  </div>
+  <div class="footer-col">
+    <h4>Navigate</h4>
+    <ul>
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#guru">Guru &amp; School</a></li>
+      <li><a href="#performances">Achievements</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#bharathanatyam">The Art</a></li>
+      <li><a href="#contact">Book</a></li>
     </ul>
   </div>
-  <div>
-    <div class="footer-col-title">The art form</div>
-    <ul class="footer-links">
-      <li><a>Bharathanatyam</a></li>
-      <li><a>Nritta</a></li>
-      <li><a>Abhinaya</a></li>
-      <li><a>Natya</a></li>
-      <li><a>Arangetram</a></li>
+  <div class="footer-col">
+    <h4>The Art Form</h4>
+    <ul>
+      <li><a href="#bharathanatyam">Bharathanatyam</a></li>
+      <li><a href="#bharathanatyam">Nritta</a></li>
+      <li><a href="#bharathanatyam">Nritya &amp; Abhinaya</a></li>
+      <li><a href="#bharathanatyam">Natya</a></li>
+      <li><a href="#bharathanatyam">The Margam</a></li>
+      <li><a href="#journey">Arangetram</a></li>
     </ul>
   </div>
 </footer>
-<div class="footer-bottom">
+<div class="footer-base">
   <span class="footer-copy">© 2026 Vanshikasri Palanivel Rajan · All Rights Reserved</span>
   <span class="footer-sanskrit">नृत्यम् शिवस्य आभरणम्</span>
 </div>
 
+
+<!-- ══════════════════════════════════════
+  SCRIPTS
+══════════════════════════════════════ -->
 <script>
-  // Photo upload preview
-  function loadPhoto(event) {
+  // ── Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobile-nav').classList.toggle('open');
+  }
+
+  // ── Hero photo upload
+  function loadHeroPhoto(event) {
     const file = event.target.files[0];
     if (!file) return;
     const reader = new FileReader();
     reader.onload = function(e) {
-      const side = document.getElementById('photo-side');
-      side.innerHTML = `<img src="${e.target.result}" alt="Vanshikasri Palanivel Rajan" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />`;
+      const side = document.getElementById('hero-photo-side');
+      side.innerHTML = `
+        <img src="${e.target.result}" alt="Vanshikasri Palanivel Rajan"
+          style="width:100%;height:100%;min-height:calc(100vh - 68px);object-fit:cover;object-position:center top;display:block;" />
+        <svg class="hero-gopurams" viewBox="0 0 800 200" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="55" width="58" height="145" fill="#E1F5EE"/><rect x="11" y="45" width="76" height="12" rx="2" fill="#E1F5EE"/><rect x="4" y="32" width="90" height="14" rx="2" fill="#E1F5EE"/><rect x="14" y="18" width="70" height="16" rx="2" fill="#E1F5EE"/><rect x="26" y="5" width="46" height="15" rx="4" fill="#E1F5EE"/><circle cx="49" cy="3" r="5" fill="#EF9F27"/>
+          <rect x="722" y="55" width="58" height="145" fill="#E1F5EE"/><rect x="713" y="45" width="76" height="12" rx="2" fill="#E1F5EE"/><rect x="706" y="32" width="90" height="14" rx="2" fill="#E1F5EE"/><rect x="716" y="18" width="70" height="16" rx="2" fill="#E1F5EE"/><rect x="728" y="5" width="46" height="15" rx="4" fill="#E1F5EE"/><circle cx="751" cy="3" r="5" fill="#EF9F27"/>
+        </svg>`;
     };
     reader.readAsDataURL(file);
   }
 
-  // Subtle header scroll effect
-  const header = document.querySelector('header');
+  // ── Generic photo loader (about portrait, etc.)
+  function loadPhoto(inputId, targetId) {
+    const input = document.getElementById(inputId);
+    if (!input || !input.files[0]) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const box = input.closest('.photo-box');
+      if (box) {
+        box.innerHTML = `<img src="${e.target.result}" alt="Photo" />`;
+      }
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+
+  // ── Gallery photo loader
+  function loadGallery(event, index) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const box = event.target.closest('.photo-box');
+      if (box) {
+        box.innerHTML = `<img src="${e.target.result}" alt="Gallery photo ${index+1}" />`;
+      }
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // ── Header shadow on scroll
+  const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
     header.style.boxShadow = window.scrollY > 10
-      ? '0 2px 20px rgba(4,52,44,0.12)'
-      : 'none';
+      ? '0 2px 24px rgba(4,52,44,0.10)' : 'none';
   }, { passive: true });
+
+  // ── Scroll-reveal animation
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ── Active nav link highlight
+  const sections = document.querySelectorAll('section[id], div[id="top"]');
+  const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
+  const activeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        const active = document.querySelector(`.main-nav a[href="#${entry.target.id}"]`);
+        if (active && !active.classList.contains('nav-cta')) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('section[id]').forEach(s => activeObserver.observe(s));
 </script>
+
 </body>
 </html>
