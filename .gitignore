@@ -18,3 +18,6 @@ desktop.ini
 *.ai
 *.sketch
 *.xd
+
+# Google Stitch design source files
+stitch_contact_booking/

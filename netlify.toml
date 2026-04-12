@@ -12,8 +12,8 @@
   status = 200
 
 [[redirects]]
-  from = "/performances"
-  to   = "/pages/performances.html"
+  from = "/repertoire"
+  to   = "/pages/repertoire.html"
   status = 200
 
 [[redirects]]
