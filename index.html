@@ -622,19 +622,27 @@ body {
 .video-desc {
   font-size: 13px; color: var(--warm-gray); line-height: 1.7;
 }
-.video-how-to {
-  margin-top: 40px; padding: 20px 24px;
-  background: var(--teal-50); border: 1px solid var(--teal-100);
-  border-left: 3px solid var(--gold-300);
+.video-url-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px;
+  background: var(--teal-50); border-top: 1px solid var(--teal-100);
 }
-.video-how-to p {
-  font-size: 13px; color: var(--teal-700); line-height: 1.8;
+.video-url-input {
+  flex: 1; font-family: var(--sans); font-size: 12px;
+  color: var(--text-dark); background: transparent;
+  border: none; border-bottom: 1px solid var(--teal-300);
+  padding: 6px 0; outline: none; transition: border-color 0.2s;
+  letter-spacing: 0;
 }
-.video-how-to code {
-  font-family: monospace; font-size: 12px;
-  background: rgba(8,80,65,0.08); padding: 2px 6px; border-radius: 3px;
-  color: var(--teal-800);
+.video-url-input::placeholder { color: var(--teal-300); font-size: 11px; }
+.video-url-input:focus { border-bottom-color: var(--gold-500); }
+.video-url-clear {
+  background: none; border: none; cursor: pointer;
+  font-size: 13px; color: var(--teal-300); padding: 4px 6px;
+  transition: color 0.2s; line-height: 1;
 }
+.video-url-clear:hover { color: var(--gold-500); }
+.video-embed-area { position: relative; }
 @media (max-width: 900px) {
   .videos-grid { grid-template-columns: 1fr; }
 }
@@ -814,7 +822,6 @@ select { cursor: pointer; }
   <a href="#videos"         onclick="toggleMenu()">Videos</a>
   <a href="#gallery"        onclick="toggleMenu()">Gallery</a>
   <a href="#bharathanatyam" onclick="toggleMenu()">The Art</a>
-  <a href="#contact"        onclick="toggleMenu()">Contact</a>
 </nav>
 
 
@@ -1169,77 +1176,91 @@ select { cursor: pointer; }
 
     <div class="videos-grid reveal">
 
-      <!--
-        HOW TO ADD A YOUTUBE VIDEO:
-        1. Go to the YouTube video
-        2. Click Share → Embed → Copy the src URL (looks like: https://www.youtube.com/embed/XXXXXXXXXXX)
-        3. Replace the <div class="video-placeholder"> block with:
-           <iframe class="video-embed" src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-             title="Video title" allowfullscreen
-             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-           </iframe>
-      -->
-
       <!-- Video 1 -->
-      <div class="video-card">
-        <!-- REPLACE THIS BLOCK with your YouTube iframe -->
-        <div class="video-placeholder">
-          <div class="video-placeholder-icon"></div>
-          <div class="video-placeholder-label">Add YouTube Video<br/><span style="font-size:9px;opacity:.6;">Paste embed URL in HTML</span></div>
+      <div class="video-card" id="vc-1">
+        <div class="video-embed-area" id="vea-1">
+          <div class="video-placeholder">
+            <div class="video-placeholder-icon"></div>
+            <div class="video-placeholder-label">Paste YouTube link below</div>
+          </div>
+        </div>
+        <div class="video-url-row">
+          <input type="url" class="video-url-input" id="vurl-1"
+            placeholder="https://www.youtube.com/watch?v=..."
+            oninput="embedYoutube(1)" />
+          <button class="video-url-clear" onclick="clearVideo(1)" title="Clear">✕</button>
         </div>
         <div class="video-meta">
-          <div class="video-event">[Event Name · Year]</div>
-          <div class="video-title">[Performance Title — e.g., Varnam · Adi Talam]</div>
-          <div class="video-desc">[Brief description — e.g., "Performed at the Annual Sabah, Chennai. A full Varnam depicting the journey of devotion."]</div>
+          <div class="video-event" contenteditable="true" data-placeholder="Event Name · Year">Event Name · Year</div>
+          <div class="video-title" contenteditable="true" data-placeholder="Performance Title">Performance Title</div>
+          <div class="video-desc"  contenteditable="true" data-placeholder="Brief description of this performance…">Brief description of this performance…</div>
         </div>
       </div>
 
       <!-- Video 2 -->
-      <div class="video-card">
-        <div class="video-placeholder">
-          <div class="video-placeholder-icon"></div>
-          <div class="video-placeholder-label">Add YouTube Video<br/><span style="font-size:9px;opacity:.6;">Paste embed URL in HTML</span></div>
+      <div class="video-card" id="vc-2">
+        <div class="video-embed-area" id="vea-2">
+          <div class="video-placeholder">
+            <div class="video-placeholder-icon"></div>
+            <div class="video-placeholder-label">Paste YouTube link below</div>
+          </div>
+        </div>
+        <div class="video-url-row">
+          <input type="url" class="video-url-input" id="vurl-2"
+            placeholder="https://www.youtube.com/watch?v=..."
+            oninput="embedYoutube(2)" />
+          <button class="video-url-clear" onclick="clearVideo(2)" title="Clear">✕</button>
         </div>
         <div class="video-meta">
-          <div class="video-event">[Event Name · Year]</div>
-          <div class="video-title">[Performance Title — e.g., Tillana · Rupaka Talam]</div>
-          <div class="video-desc">[Brief description of the performance and occasion.]</div>
+          <div class="video-event" contenteditable="true">Event Name · Year</div>
+          <div class="video-title" contenteditable="true">Performance Title</div>
+          <div class="video-desc"  contenteditable="true">Brief description of this performance…</div>
         </div>
       </div>
 
       <!-- Video 3 -->
-      <div class="video-card">
-        <div class="video-placeholder">
-          <div class="video-placeholder-icon"></div>
-          <div class="video-placeholder-label">Add YouTube Video<br/><span style="font-size:9px;opacity:.6;">Paste embed URL in HTML</span></div>
+      <div class="video-card" id="vc-3">
+        <div class="video-embed-area" id="vea-3">
+          <div class="video-placeholder">
+            <div class="video-placeholder-icon"></div>
+            <div class="video-placeholder-label">Paste YouTube link below</div>
+          </div>
+        </div>
+        <div class="video-url-row">
+          <input type="url" class="video-url-input" id="vurl-3"
+            placeholder="https://www.youtube.com/watch?v=..."
+            oninput="embedYoutube(3)" />
+          <button class="video-url-clear" onclick="clearVideo(3)" title="Clear">✕</button>
         </div>
         <div class="video-meta">
-          <div class="video-event">[Event Name · Year]</div>
-          <div class="video-title">[Performance Title — e.g., Alarippu &amp; Jatiswaram]</div>
-          <div class="video-desc">[Brief description of the performance and occasion.]</div>
+          <div class="video-event" contenteditable="true">Event Name · Year</div>
+          <div class="video-title" contenteditable="true">Performance Title</div>
+          <div class="video-desc"  contenteditable="true">Brief description of this performance…</div>
         </div>
       </div>
 
       <!-- Video 4 -->
-      <div class="video-card">
-        <div class="video-placeholder">
-          <div class="video-placeholder-icon"></div>
-          <div class="video-placeholder-label">Add YouTube Video<br/><span style="font-size:9px;opacity:.6;">Paste embed URL in HTML</span></div>
+      <div class="video-card" id="vc-4">
+        <div class="video-embed-area" id="vea-4">
+          <div class="video-placeholder">
+            <div class="video-placeholder-icon"></div>
+            <div class="video-placeholder-label">Paste YouTube link below</div>
+          </div>
+        </div>
+        <div class="video-url-row">
+          <input type="url" class="video-url-input" id="vurl-4"
+            placeholder="https://www.youtube.com/watch?v=..."
+            oninput="embedYoutube(4)" />
+          <button class="video-url-clear" onclick="clearVideo(4)" title="Clear">✕</button>
         </div>
         <div class="video-meta">
-          <div class="video-event">[Event Name · Year]</div>
-          <div class="video-title">[Performance Title — e.g., Arangetram Highlights]</div>
-          <div class="video-desc">[Brief description of the performance and occasion.]</div>
+          <div class="video-event" contenteditable="true">Event Name · Year</div>
+          <div class="video-title" contenteditable="true">Performance Title</div>
+          <div class="video-desc"  contenteditable="true">Brief description of this performance…</div>
         </div>
       </div>
 
     </div><!-- /videos-grid -->
-
-    <div class="video-how-to reveal">
-      <p><strong>How to add your YouTube videos:</strong> Open <code>index.html</code>, find the <code>&lt;!-- Video 1 --&gt;</code> comment, and replace the <code>video-placeholder</code> div with:<br/>
-      <code>&lt;iframe class="video-embed" src="https://www.youtube.com/embed/<strong>VIDEO_ID</strong>" title="Title" allowfullscreen&gt;&lt;/iframe&gt;</code><br/>
-      Get the Video ID from YouTube → Share → Embed → copy the URL after <code>/embed/</code></p>
-    </div>
 
   </div>
 </section>
@@ -1485,92 +1506,6 @@ select { cursor: pointer; }
 </section>
 
 
-<!-- ══════════════════════════════════════
-  CONTACT / BOOK
-══════════════════════════════════════ -->
-<section id="contact" class="section-wrap">
-  <div class="section-inner">
-    <div class="contact-grid">
-
-      <!-- Info -->
-      <div class="reveal">
-        <div class="eyebrow">Book a Performance</div>
-        <h2 class="section-title">Connect &amp; Collaborate</h2>
-        <div class="gold-rule"></div>
-        <p class="section-lead">
-          For performance bookings, cultural events, temple programmes,
-          school presentations, or any inquiries, please get in touch.
-        </p>
-
-        <div class="contact-detail">
-          <div class="contact-detail-label">Email</div>
-          <div class="contact-detail-value">
-            <a href="mailto:hello@vanshikasri.com">hello@vanshikasri.com</a>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-label">Location</div>
-          <div class="contact-detail-value">[City, State / Country]</div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-label">Available for</div>
-          <div class="contact-detail-value" style="font-size:15px;font-family:var(--sans);line-height:1.9;color:var(--warm-gray);">
-            Sabhas &amp; Festivals<br/>
-            Temple Programmes<br/>
-            Cultural Evenings<br/>
-            School &amp; College Events<br/>
-            Private Celebrations
-          </div>
-        </div>
-      </div>
-
-      <!-- Form -->
-      <div class="reveal">
-        <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact" />
-          <div style="display:none"><input name="bot-field" /></div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="f-name">Your Name</label>
-              <input id="f-name" name="name" type="text" placeholder="Full name" required />
-            </div>
-            <div class="form-group">
-              <label for="f-email">Email Address</label>
-              <input id="f-email" name="email" type="email" placeholder="email@example.com" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group full">
-              <label for="f-subject">Type of Inquiry</label>
-              <select id="f-subject" name="subject">
-                <option>Performance Booking</option>
-                <option>Cultural Event</option>
-                <option>Temple Programme</option>
-                <option>School / College Event</option>
-                <option>Private Celebration</option>
-                <option>General Inquiry</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group full">
-              <label for="f-message">Your Message</label>
-              <textarea id="f-message" name="message" placeholder="Tell us about your event — date, location, and any details…"></textarea>
-            </div>
-          </div>
-
-          <div class="form-submit">
-            <button type="submit" class="btn btn-gold">Send Message</button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 
 <!-- ══════════════════════════════════════
@@ -1593,7 +1528,6 @@ select { cursor: pointer; }
       <li><a href="#videos">Videos</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#bharathanatyam">The Art</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
   <div class="footer-col">
@@ -1618,6 +1552,46 @@ select { cursor: pointer; }
   SCRIPTS
 ══════════════════════════════════════ -->
 <script>
+  // ── YouTube URL → embed
+  function extractYouTubeId(url) {
+    url = url.trim();
+    // Handles: watch?v=ID, youtu.be/ID, /embed/ID, /shorts/ID
+    const patterns = [
+      /[?&]v=([a-zA-Z0-9_-]{11})/,
+      /youtu\.be\/([a-zA-Z0-9_-]{11})/,
+      /\/embed\/([a-zA-Z0-9_-]{11})/,
+      /\/shorts\/([a-zA-Z0-9_-]{11})/
+    ];
+    for (const p of patterns) {
+      const m = url.match(p);
+      if (m) return m[1];
+    }
+    return null;
+  }
+
+  function embedYoutube(n) {
+    const input = document.getElementById('vurl-' + n);
+    const area  = document.getElementById('vea-' + n);
+    const id    = extractYouTubeId(input.value);
+    if (!id) return;
+    area.innerHTML =
+      `<iframe class="video-embed"
+        src="https://www.youtube.com/embed/${id}"
+        title="Performance video"
+        frameborder="0" allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>`;
+  }
+
+  function clearVideo(n) {
+    document.getElementById('vurl-' + n).value = '';
+    document.getElementById('vea-' + n).innerHTML =
+      `<div class="video-placeholder">
+        <div class="video-placeholder-icon"></div>
+        <div class="video-placeholder-label">Paste YouTube link below</div>
+      </div>`;
+  }
+
   // ── Mobile menu
   function toggleMenu() {
     document.getElementById('mobile-nav').classList.toggle('open');
