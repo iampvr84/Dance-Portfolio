@@ -1168,21 +1168,16 @@ select { cursor: pointer; }
       <!-- Video 1 -->
       <div class="video-card" id="vc-1">
         <div class="video-embed-area" id="vea-1">
-          <div class="video-placeholder">
-            <div class="video-placeholder-icon"></div>
-            <div class="video-placeholder-label">Paste YouTube link below</div>
-          </div>
-        </div>
-        <div class="video-url-row">
-          <input type="url" class="video-url-input" id="vurl-1"
-            placeholder="https://www.youtube.com/watch?v=..."
-            oninput="embedYoutube(1)" />
-          <button class="video-url-clear" onclick="clearVideo(1)" title="Clear">✕</button>
+          <iframe class="video-embed"
+            src="https://www.youtube.com/embed/Kkeg7rsUoEc"
+            title="Sri Vigna Rajam Bhaje" frameborder="0" allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+          </iframe>
         </div>
         <div class="video-meta">
-          <div class="video-event" contenteditable="true" data-placeholder="Event Name · Year">Event Name · Year</div>
-          <div class="video-title" contenteditable="true" data-placeholder="Performance Title">Performance Title</div>
-          <div class="video-desc"  contenteditable="true" data-placeholder="Brief description of this performance…">Brief description of this performance…</div>
+          <div class="video-event">Mar 2022 · Senior Level Classical Category</div>
+          <div class="video-title">Sri Vigna Rajam Bhaje</div>
+          <div class="video-desc">Group performance — Won First Prize</div>
         </div>
       </div>
 
