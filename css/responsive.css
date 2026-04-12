@@ -1,0 +1,67 @@
+/* =============================================
+   RESPONSIVE.CSS — Mobile-first breakpoints
+   ============================================= */
+
+/* Tablet and below (≤ 768px) */
+@media (max-width: 768px) {
+
+  /* Nav */
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: var(--maroon-deep);
+    flex-direction: column;
+    gap: 0;
+    padding: var(--space-sm) 0;
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    border-bottom: 2px solid var(--gold-dark);
+  }
+  .nav-links a {
+    display: block;
+    padding: 0.9rem var(--space-md);
+    border-bottom: 1px solid rgba(201,151,58,0.15);
+  }
+  .nav-links a::after { display: none; }
+  .nav-open .nav-links {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  /* Hamburger → X */
+  .nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Highlights */
+  .highlights-grid { grid-template-columns: 1fr; }
+
+  /* Gallery preview */
+  .gallery-grid-preview { grid-template-columns: 1fr 1fr; }
+  .gallery-grid-preview .gallery-placeholder:last-child { display: none; }
+
+  /* About */
+  .about-grid { grid-template-columns: 1fr; }
+  .about-img-wrap { max-width: 340px; margin: 0 auto; }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; }
+
+  /* Performances */
+  .performance-card { grid-template-columns: 1fr; }
+  .performance-date { display: inline-flex; gap: 0.5rem; align-items: baseline; }
+  .perf-day { font-size: 1.2rem; }
+}
+
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .gallery-grid-preview { grid-template-columns: 1fr; }
+  .gallery-grid-preview .gallery-placeholder:last-child { display: flex; }
+
+  .hero-content { padding: var(--space-lg) var(--space-sm); }
+
+  .section { padding: var(--space-md) 0; }
+
+  .footer-nav { flex-wrap: wrap; gap: var(--space-sm); }
+}
