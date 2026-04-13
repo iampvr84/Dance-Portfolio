@@ -119,7 +119,7 @@ body {
 .section-inner { max-width: 1120px; margin: 0 auto; }
 
 .eyebrow {
-  font-size: 10px; font-weight: 600; letter-spacing: 4px;
+  font-size: 11px; font-weight: 600; letter-spacing: 3px;
   text-transform: uppercase; color: var(--gold-500);
   display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem;
 }
@@ -135,7 +135,7 @@ body {
 }
 .section-title.on-dark { color: var(--teal-50); }
 .section-lead {
-  font-size: 15px; color: var(--warm-gray); line-height: 1.9;
+  font-size: 16px; color: var(--warm-gray); line-height: 1.9;
   max-width: 640px; margin-bottom: 2rem;
 }
 .section-lead.on-dark { color: var(--teal-100); }
@@ -207,11 +207,13 @@ body {
 }
 /* Left — full-height photo */
 .hero-photo {
-  position: relative;
+  position: sticky; top: 68px;
+  height: calc(100vh - 68px);
+  align-self: start;
   background: var(--teal-800); overflow: hidden;
 }
 .hero-photo .photo-box {
-  width: 100%; height: 100%; min-height: calc(100vh - 68px);
+  width: 100%; height: 100%;
 }
 .hero-photo::after {
   content: '';
@@ -227,7 +229,7 @@ body {
 .hero-text {
   background: var(--teal-800);
   display: flex; flex-direction: column; justify-content: center;
-  padding: 80px 60px; position: relative; overflow: hidden;
+  padding: 48px 52px; position: relative; overflow: hidden;
 }
 .hero-grid-lines {
   position: absolute; inset: 0; pointer-events: none;
@@ -236,32 +238,32 @@ body {
     repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(93,202,165,0.04) 39px, rgba(93,202,165,0.04) 40px);
 }
 .hero-eyebrow {
-  font-size: 10px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase;
-  color: var(--gold-100); margin-bottom: 1.5rem;
+  font-size: 12px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold-100); margin-bottom: 0.6rem;
   display: flex; align-items: center; gap: 14px;
   opacity: 0; animation: fadeUp 1s 0.3s forwards;
 }
 .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold-500); }
 .hero-name {
   font-family: var(--serif);
-  font-size: clamp(38px, 4.8vw, 66px); font-weight: 300;
+  font-size: clamp(34px, 4vw, 54px); font-weight: 300;
   color: var(--teal-50); line-height: 1.1; letter-spacing: 2px;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.4rem;
   opacity: 0; animation: fadeUp 1s 0.5s forwards;
 }
 .hero-tagline {
-  font-family: var(--serif); font-size: clamp(15px, 1.8vw, 19px);
+  font-family: var(--serif); font-size: clamp(14px, 1.6vw, 17px);
   font-weight: 300; font-style: italic;
-  color: var(--teal-100); line-height: 1.6; margin-bottom: 2.5rem;
+  color: var(--teal-100); line-height: 1.5; margin-bottom: 0.5rem;
   opacity: 0; animation: fadeUp 1s 0.7s forwards;
 }
 .hero-rule {
-  width: 48px; height: 1px; background: var(--gold-300); margin-bottom: 2.5rem;
+  width: 48px; height: 1px; background: var(--gold-300); margin-bottom: 0.5rem;
   opacity: 0; animation: fadeUp 1s 0.85s forwards;
 }
 .hero-intro {
-  font-size: 14px; color: var(--teal-100); line-height: 1.95;
-  max-width: 400px; margin-bottom: 3rem;
+  font-size: 14px; color: var(--teal-100); line-height: 1.7;
+  max-width: 100%; margin-bottom: 0.5rem;
   opacity: 0; animation: fadeUp 1s 0.95s forwards;
 }
 .hero-ctas {
@@ -286,7 +288,7 @@ body {
   color: var(--gold-100); line-height: 1; display: block;
 }
 .stat-l {
-  font-size: 9.5px; letter-spacing: 2.5px; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--teal-100); margin-top: 5px; display: block;
 }
 
@@ -305,7 +307,7 @@ body {
 }
 .about-content {}
 .about-body {
-  font-size: 15px; color: var(--warm-gray); line-height: 1.95;
+  font-size: 16px; color: var(--warm-gray); line-height: 1.95;
   margin-bottom: 1.6rem;
 }
 .about-highlight {
@@ -335,14 +337,14 @@ body {
   box-shadow: 0 0 0 3px var(--gold-100);
 }
 .timeline-year {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold-500); font-weight: 600; margin-bottom: 6px;
 }
 .timeline-title {
-  font-family: var(--serif); font-size: 22px; font-weight: 400;
+  font-family: var(--serif); font-size: 24px; font-weight: 400;
   color: var(--teal-800); line-height: 1.3; margin-bottom: 6px;
 }
-.timeline-desc { font-size: 14px; color: var(--warm-gray); line-height: 1.8; }
+.timeline-desc { font-size: 15px; color: var(--warm-gray); line-height: 1.8; }
 
 /* ═══════════════════════════════════════
    4. GURU & SCHOOL
@@ -360,7 +362,7 @@ body {
   background: linear-gradient(90deg, var(--gold-500), var(--gold-100));
 }
 .guru-role {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold-500); font-weight: 600; margin-bottom: 12px;
 }
 .guru-name {
@@ -368,7 +370,7 @@ body {
   color: var(--teal-800); margin-bottom: 8px; line-height: 1.2;
 }
 .guru-detail {
-  font-size: 13px; color: var(--warm-gray); line-height: 1.8;
+  font-size: 15px; color: var(--warm-gray); line-height: 1.9;
 }
 .tradition-block {
   background: var(--teal-50); padding: 44px 40px; border: 1px solid var(--teal-100);
@@ -380,11 +382,11 @@ body {
 }
 .tradition-item {}
 .tradition-label {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--teal-500); font-weight: 600; margin-bottom: 6px;
 }
 .tradition-value {
-  font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--teal-800);
+  font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--teal-800);
 }
 
 /* ═══════════════════════════════════════
@@ -403,12 +405,12 @@ body {
 }
 .perf-info {}
 .perf-title {
-  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  font-family: var(--serif); font-size: 22px; font-weight: 400;
   color: var(--teal-800); margin-bottom: 4px;
 }
-.perf-venue { font-size: 13px; color: var(--warm-gray); }
+.perf-venue { font-size: 14px; color: var(--warm-gray); }
 .perf-tag {
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
   color: var(--gold-500); font-weight: 600; white-space: nowrap;
   padding: 5px 14px; border: 1px solid var(--gold-100);
   align-self: center;
@@ -428,14 +430,14 @@ body {
   font-size: 80px; color: rgba(239,159,39,0.06); line-height: 1;
 }
 .award-year {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--teal-300); margin-bottom: 10px;
 }
 .award-title {
-  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  font-family: var(--serif); font-size: 22px; font-weight: 400;
   color: var(--teal-50); margin-bottom: 8px;
 }
-.award-body { font-size: 13px; color: var(--teal-100); line-height: 1.7; }
+.award-body { font-size: 15px; color: var(--teal-100); line-height: 1.8; }
 
 /* ═══════════════════════════════════════
    6. PHOTO GALLERY
@@ -466,11 +468,11 @@ body {
 }
 .gallery-item:hover .gallery-caption { transform: translateY(0); }
 .gallery-cap-label {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold-100); margin-bottom: 4px;
 }
 .gallery-cap-title {
-  font-family: var(--serif); font-size: 17px; color: #fff;
+  font-family: var(--serif); font-size: 19px; color: #fff;
 }
 
 /* Replace-photo hint */
@@ -498,11 +500,11 @@ body {
   color: var(--teal-50); display: block; line-height: 1;
 }
 .bha-sub {
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold-300); margin-top: 10px; display: block;
 }
 .bha-meaning {
-  font-family: var(--serif); font-size: 12px; font-style: italic;
+  font-family: var(--serif); font-size: 14px; font-style: italic;
   color: var(--teal-100); margin-top: 4px; display: block;
 }
 
@@ -519,14 +521,14 @@ body {
   color: rgba(239,159,39,0.3); line-height: 1; display: block; margin-bottom: 12px;
 }
 .bha-pillar-title {
-  font-family: var(--serif); font-size: 26px; font-weight: 400;
+  font-family: var(--serif); font-size: 28px; font-weight: 400;
   color: var(--teal-50); margin-bottom: 8px;
 }
 .bha-pillar-sub {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold-300); margin-bottom: 14px;
 }
-.bha-pillar-body { font-size: 13px; color: var(--teal-100); line-height: 1.8; }
+.bha-pillar-body { font-size: 15px; color: var(--teal-100); line-height: 1.85; }
 
 .margam-strip {
   border-top: 1px solid rgba(93,202,165,0.2);
@@ -552,10 +554,10 @@ body {
   color: rgba(239,159,39,0.4); display: block; line-height: 1; margin-bottom: 8px;
 }
 .margam-name {
-  font-family: var(--serif); font-size: 16px; font-weight: 400;
+  font-family: var(--serif); font-size: 17px; font-weight: 400;
   color: var(--teal-50); display: block; margin-bottom: 4px;
 }
-.margam-desc { font-size: 10px; color: var(--teal-100); letter-spacing: 1px; }
+.margam-desc { font-size: 11px; color: var(--teal-100); letter-spacing: 1px; }
 
 /* ═══════════════════════════════════════
    VIDEOS
@@ -612,15 +614,15 @@ body {
 }
 .video-meta { padding: 20px 24px 24px; }
 .video-event {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold-500); font-weight: 600; margin-bottom: 6px;
 }
 .video-title {
-  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  font-family: var(--serif); font-size: 22px; font-weight: 400;
   color: var(--teal-800); margin-bottom: 4px; line-height: 1.3;
 }
 .video-desc {
-  font-size: 13px; color: var(--warm-gray); line-height: 1.7;
+  font-size: 15px; color: var(--warm-gray); line-height: 1.8;
 }
 .video-url-row {
   display: flex; align-items: center; gap: 8px;
@@ -711,8 +713,8 @@ select { cursor: pointer; }
   font-family: var(--serif); font-size: 22px; font-weight: 400;
   color: var(--teal-50); margin-bottom: 12px;
 }
-.footer-brand-desc { font-size: 13px; color: var(--teal-100); line-height: 1.8; margin-bottom: 16px; }
-.footer-email { font-size: 12px; color: var(--gold-300); text-decoration: none; }
+.footer-brand-desc { font-size: 15px; color: var(--teal-100); line-height: 1.8; margin-bottom: 16px; }
+.footer-email { font-size: 14px; color: var(--gold-300); text-decoration: none; }
 .footer-email:hover { color: var(--gold-100); }
 .footer-col h4 {
   font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
@@ -720,7 +722,7 @@ select { cursor: pointer; }
 }
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 10px; }
-.footer-col ul a { font-size: 13px; color: var(--teal-100); text-decoration: none; }
+.footer-col ul a { font-size: 14px; color: var(--teal-100); text-decoration: none; }
 .footer-col ul a:hover { color: var(--gold-100); }
 .footer-base {
   background: var(--teal-900); border-top: 1px solid rgba(93,202,165,0.08);
@@ -728,7 +730,7 @@ select { cursor: pointer; }
   display: flex; align-items: center; justify-content: space-between;
 }
 .footer-copy { font-size: 11px; color: rgba(159,225,203,0.4); letter-spacing: 1px; }
-.footer-sanskrit { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--gold-500); }
+.footer-sanskrit { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--gold-500); }
 
 /* ═══════════════════════════════════════
    ANIMATIONS
@@ -796,7 +798,11 @@ select { cursor: pointer; }
      NAVIGATION
 ══════════════════════════════════════ -->
 <header class="site-header" id="site-header">
-  <a class="logo" href="#top">Vanshikasri <em>·</em> Bharathanatyam</a>
+  <a class="logo" href="#top" style="display:flex;align-items:center;gap:10px;">
+    <img src="images/gallery/Logo.png" alt="Sri Thillai Natya Palli"
+         style="height:44px;width:auto;object-fit:contain;border-radius:50%;" />
+    Vanshikasri <em>·</em> Bharathanatyam
+  </a>
 
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -806,10 +812,10 @@ select { cursor: pointer; }
     <a href="#about">About</a>
     <a href="#journey">Journey</a>
     <a href="#guru">Guru &amp; School</a>
-    <a href="#performances">Achievements</a>
     <a href="#videos">Videos</a>
     <a href="#gallery">Gallery</a>
     <a href="#bharathanatyam">The Art</a>
+    <a href="#performances">Achievements</a>
   </nav>
 </header>
 
@@ -818,10 +824,10 @@ select { cursor: pointer; }
   <a href="#about"          onclick="toggleMenu()">About</a>
   <a href="#journey"        onclick="toggleMenu()">Journey</a>
   <a href="#guru"           onclick="toggleMenu()">Guru &amp; School</a>
-  <a href="#performances"   onclick="toggleMenu()">Achievements</a>
   <a href="#videos"         onclick="toggleMenu()">Videos</a>
   <a href="#gallery"        onclick="toggleMenu()">Gallery</a>
   <a href="#bharathanatyam" onclick="toggleMenu()">The Art</a>
+  <a href="#performances"   onclick="toggleMenu()">Achievements</a>
 </nav>
 
 
@@ -862,9 +868,21 @@ select { cursor: pointer; }
       <p class="hero-tagline">"Where movement meets devotion,<br/>and rhythm becomes prayer."</p>
       <div class="hero-rule"></div>
       <p class="hero-intro">
-        A young classical Bharathanatyam dancer rooted in the ancient temple traditions
-        of Tamil Nadu — where every adavu, every mudra, and every glance carries
-        the weight of devotion and the lightness of grace.
+        A young Bharatanatyam dancer, deeply rooted in the timeless temple traditions of
+        Tamil Nadu — where every adavu, every mudra, and every glance becomes an expression
+        of devotion and grace.
+      </p>
+      <p class="hero-intro">
+        Her journey is not just about dance, but about carrying forward a sacred legacy —
+        where rhythm meets spirituality, and movement transforms into storytelling. With each
+        performance, she seeks to honor the art, her Guru, and the divine essence that
+        breathes life into Bharatanatyam.
+      </p>
+      <p class="hero-intro" style="font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--gold-100);line-height:1.6;margin-bottom:0.6rem;">
+        "அடிகள் ஒவ்வொன்றிலும் அர்த்தம் உறையும், அபிநயத்தில் ஆன்மா பேசும்."<br/>
+        <span style="font-size:11px;font-style:normal;letter-spacing:1px;color:var(--teal-100);font-family:var(--sans);">
+          In every step resides meaning; in every expression, the soul speaks.
+        </span>
       </p>
       <div class="hero-ctas">
         <a class="btn btn-gold" href="#about">Her Story</a>
@@ -914,19 +932,19 @@ select { cursor: pointer; }
         <div class="gold-rule"></div>
 
         <p class="about-body">
-          Vanshika began her Bharatanatyam journey at just five years old under the guidance
-          of her Guru, Smt. Sridevi Jeyaraman. Over the years, she has grown into a confident
-          and expressive performer, lighting up the stage at cultural events and competitions.
+          Vanshika began her Bharatanatyam journey at the tender age of five under the guidance
+          of her Guru, Smt. Sridevi Jeyaraman. Over the years, she has blossomed into a poised
+          and expressive dancer, captivating audiences at various cultural events and competitions.
         </p>
         <p class="about-body">
-          For Vanshika, Bharatanatyam is more than just dance — it's her way of staying
-          connected to her roots while building discipline, strength, and artistry. Off stage,
-          she plays competitive soccer with MYSL – Pumas and has trained in Carnatic music,
-          balancing tradition with her unstoppable energy.
+          For Vanshika, Bharatanatyam is more than an art form — it is a meaningful connection
+          to her heritage, nurturing discipline, strength, and artistic expression. Beyond the
+          stage, she is an active athlete, playing competitive soccer with MYSL – Pumas, and has
+          also trained in Carnatic music, beautifully balancing tradition with her vibrant energy.
         </p>
         <p class="about-body">
-          Her Arangetram is a major milestone, celebrating years of hard work, passion,
-          and dedication.
+          Her Arangetram marks a significant milestone, celebrating years of dedication,
+          perseverance, and passion for this timeless art.
         </p>
 
         <div class="about-highlight">
@@ -966,41 +984,24 @@ select { cursor: pointer; }
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-year">[Year]</div>
+        <div class="timeline-year">2018</div>
         <div class="timeline-title">First stage performance</div>
-        <div class="timeline-desc">Performed Alarippu and Jatiswaram at [Event Name / School Annual Day].
-          The first time the stage lights fell on her — and she knew this was her calling.</div>
+        <div class="timeline-desc">Performed Pushpanjali at Sri Sai Temple, California, USA. The first time the stage lights fell on her — and she knew this was her calling.</div>
+      </div>
+
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Arangetram · June 14, 2026 · Planned</div>
+        <div class="timeline-title">Solo Debut Recital — Arangetram</div>
+        <div class="timeline-desc">The Arangetram — the formal debut marking the transition from
+          student to performer. A full evening of solo Bharathanatyam at the
+          HUSD Performing Arts Center, California, USA.</div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-year">[Year]</div>
-        <div class="timeline-title">Competitions &amp; recognition begin</div>
-        <div class="timeline-desc">Entered [Competition Name] and received [Award/Rank].
-          Began representing her school and institution at local and regional cultural festivals.</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">[Year]</div>
-        <div class="timeline-title">Advanced training — Margam sequence</div>
-        <div class="timeline-desc">Began studying the full Margam — Pushpanjali, Alarippu, Jatiswaram,
-          Shabdam, Varnam, Padam, Keertanam, and Tillana. Each piece a deeper exploration of
-          rhythm, emotion, and expression.</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">Arangetram · [Year — if completed]</div>
-        <div class="timeline-title">Solo debut recital</div>
-        <div class="timeline-desc">The Arangetram — the formal debut — marked the transition from
-          student to performer. A full evening of solo dance before family, teachers, and an audience.
-          [Update if completed or upcoming.]</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">Present · [Year]</div>
+        <div class="timeline-year">Present · 2026</div>
         <div class="timeline-title">Continuing the journey</div>
         <div class="timeline-desc">Performing at sabhas, festivals, and competitions.
           Each appearance on stage a deepening conversation between the dancer, the music,
@@ -1017,14 +1018,34 @@ select { cursor: pointer; }
 ══════════════════════════════════════ -->
 <section id="guru" class="section-wrap">
   <div class="section-inner">
-    <div class="eyebrow reveal">Guru &amp; School</div>
-    <h2 class="section-title reveal">The lineage behind the dancer</h2>
-    <div class="gold-rule reveal"></div>
-    <p class="section-lead reveal">
-      In Bharathanatyam, the Guru–Shishya relationship is sacred. The guru does not merely
-      teach steps — they transmit a living tradition, instilling discipline, devotion,
-      and the depth of the art into the student.
-    </p>
+    <div class="reveal" style="display:flex;align-items:flex-start;gap:56px;flex-wrap:wrap;margin-bottom:48px;">
+      <div style="flex:1;min-width:280px;">
+        <div class="eyebrow">Guru &amp; School</div>
+        <h2 class="section-title" style="margin-bottom:1rem;">The Sacred Bond of Guru &amp; Shishya</h2>
+        <div class="gold-rule" style="margin-bottom:1.5rem;"></div>
+        <p class="section-lead" style="margin-bottom:1rem;">
+          In Bharatanatyam, the Guru–Shishya relationship is a sacred and timeless bond that forms
+          the very foundation of the art. The Guru is not merely an instructor of technique, but a
+          custodian of a rich and living tradition, carefully passed down through generations.
+        </p>
+        <p class="section-lead" style="margin-bottom:0;">
+          Through this relationship, the student receives more than choreography — they are immersed
+          in a disciplined journey that nurtures devotion, humility, and a deep understanding of the
+          art's spiritual and cultural essence. Every movement, expression, and rhythm carries the
+          imprint of this lineage, connecting the dancer to something far greater than themselves.
+        </p>
+      </div>
+      <div style="flex-shrink:0;text-align:center;">
+        <img src="images/gallery/Guru.jpg"
+             alt="Guru Smt. Sridevi Jeyaraman with Vanshikasri"
+             style="width:280px;height:340px;object-fit:cover;object-position:center top;
+                    border:1px solid var(--border);display:block;" />
+        <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;
+                  color:var(--gold-500);margin-top:10px;">
+          Guru Smt. Sridevi Jeyaraman &amp; Vanshikasri
+        </p>
+      </div>
+    </div>
 
     <div class="guru-grid reveal">
 
@@ -1083,73 +1104,6 @@ select { cursor: pointer; }
 <!-- ══════════════════════════════════════
   5. PERFORMANCES & ACHIEVEMENTS
 ══════════════════════════════════════ -->
-<section id="performances" class="section-wrap alt">
-  <div class="section-inner">
-    <div class="eyebrow reveal">Performances &amp; Achievements</div>
-    <h2 class="section-title reveal">On stage &amp; on the podium</h2>
-    <div class="gold-rule reveal"></div>
-
-    <!-- Performances List -->
-    <div class="perf-list reveal">
-      <div class="perf-row">
-        <div class="perf-year">[Year]</div>
-        <div class="perf-info">
-          <div class="perf-title">[Event Name · e.g., Annual Sabah Performance]</div>
-          <div class="perf-venue">[Venue / Organisation Name] · [City]</div>
-        </div>
-        <div class="perf-tag">Performance</div>
-      </div>
-      <div class="perf-row">
-        <div class="perf-year">[Year]</div>
-        <div class="perf-info">
-          <div class="perf-title">[Event Name · e.g., Kalai Thiruvizha Cultural Festival]</div>
-          <div class="perf-venue">[Venue / Organisation Name] · [City]</div>
-        </div>
-        <div class="perf-tag">Festival</div>
-      </div>
-      <div class="perf-row">
-        <div class="perf-year">[Year]</div>
-        <div class="perf-info">
-          <div class="perf-title">[Event Name · e.g., Temple Uthsavam]</div>
-          <div class="perf-venue">[Temple / Venue Name] · [City]</div>
-        </div>
-        <div class="perf-tag">Temple</div>
-      </div>
-      <div class="perf-row">
-        <div class="perf-year">[Year]</div>
-        <div class="perf-info">
-          <div class="perf-title">[Add more performances here]</div>
-          <div class="perf-venue">[Venue] · [City]</div>
-        </div>
-        <div class="perf-tag">Performance</div>
-      </div>
-    </div>
-
-    <!-- Awards -->
-    <div class="eyebrow reveal" style="margin-top:72px;">Awards &amp; Recognition</div>
-    <div class="awards-grid reveal">
-      <div class="award-card">
-        <div class="award-year">[Year]</div>
-        <div class="award-title">[Award Name]</div>
-        <div class="award-body">[Brief description — e.g., "First place in solo classical dance
-          category at [Competition Name], judged by [panel]."</div>
-      </div>
-      <div class="award-card">
-        <div class="award-year">[Year]</div>
-        <div class="award-title">[Award Name]</div>
-        <div class="award-body">[Brief description of this award or recognition.]</div>
-      </div>
-      <div class="award-card">
-        <div class="award-year">[Year]</div>
-        <div class="award-title">[Award Name]</div>
-        <div class="award-body">[Brief description of this award or recognition.]</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
 <!-- ══════════════════════════════════════
   VIDEOS — PERFORMANCES
 ══════════════════════════════════════ -->
@@ -1267,90 +1221,37 @@ select { cursor: pointer; }
 
     <div class="gallery-grid reveal">
 
-      <!-- Slot 1: Featured large (spans 2 cols × 2 rows) -->
       <div class="gallery-item">
-        <img src="images/gallery/First - cover page option 1 new.jpg"
-             alt="Vanshikasri Palanivel Rajan — Featured Pose"
-             style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
-        <div class="gallery-caption">
-          <div class="gallery-cap-label">Featured</div>
-          <div class="gallery-cap-title">Araimandi — The Classical Stance</div>
-        </div>
+        <img src="images/gallery/gallery7.jpg" alt="Vanshikasri" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+        <div class="gallery-caption"><div class="gallery-cap-label">Featured</div><div class="gallery-cap-title">Classical Pose</div></div>
       </div>
 
-      <!-- Slot 2 -->
       <div class="gallery-item">
-        <div class="photo-box" style="width:100%;height:100%;"
-             onclick="document.getElementById('gal-1').click()">
-          <div class="photo-box-icon">⊕</div>
-          <div class="photo-box-label">Mudra Close-up<br/><span style="font-size:9px;opacity:.6;">Hand gesture detail · alta + jewellery</span></div>
-          <input type="file" id="gal-1" accept="image/*" onchange="loadGallery(event,1)" />
-        </div>
-        <div class="gallery-caption">
-          <div class="gallery-cap-label">Mudra</div>
-          <div class="gallery-cap-title">Sacred Hand Gestures</div>
-        </div>
+        <img src="images/gallery/gallery11.jpg" alt="Vanshikasri" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+        <div class="gallery-caption"><div class="gallery-cap-label">Bharathanatyam</div><div class="gallery-cap-title">Expressive Moment</div></div>
       </div>
 
-      <!-- Slot 3 -->
       <div class="gallery-item">
-        <div class="photo-box" style="width:100%;height:100%;"
-             onclick="document.getElementById('gal-2').click()">
-          <div class="photo-box-icon">⊕</div>
-          <div class="photo-box-label">Abhinaya Expression<br/><span style="font-size:9px;opacity:.6;">Eyes, expression, storytelling</span></div>
-          <input type="file" id="gal-2" accept="image/*" onchange="loadGallery(event,2)" />
-        </div>
-        <div class="gallery-caption">
-          <div class="gallery-cap-label">Abhinaya</div>
-          <div class="gallery-cap-title">The Language of Expression</div>
-        </div>
+        <img src="images/gallery/gallery24.JPG" alt="Vanshikasri" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+        <div class="gallery-caption"><div class="gallery-cap-label">Bharathanatyam</div><div class="gallery-cap-title">Expressive Moment</div></div>
       </div>
 
-      <!-- Slot 4 -->
       <div class="gallery-item">
-        <div class="photo-box" style="width:100%;height:100%;"
-             onclick="document.getElementById('gal-3').click()">
-          <div class="photo-box-icon">⊕</div>
-          <div class="photo-box-label">Full Costume<br/><span style="font-size:9px;opacity:.6;">Saree, jewellery, makeup, flowers</span></div>
-          <input type="file" id="gal-3" accept="image/*" onchange="loadGallery(event,3)" />
-        </div>
-        <div class="gallery-caption">
-          <div class="gallery-cap-label">Costume</div>
-          <div class="gallery-cap-title">The Classical Attire</div>
-        </div>
+        <img src="images/gallery/gallery25.JPG" alt="Vanshikasri" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+        <div class="gallery-caption"><div class="gallery-cap-label">Bharathanatyam</div><div class="gallery-cap-title">Expressive Moment</div></div>
       </div>
 
-      <!-- Slot 5 -->
       <div class="gallery-item">
-        <div class="photo-box" style="width:100%;height:100%;"
-             onclick="document.getElementById('gal-4').click()">
-          <div class="photo-box-icon">⊕</div>
-          <div class="photo-box-label">Stage Performance<br/><span style="font-size:9px;opacity:.6;">Live performance shot</span></div>
-          <input type="file" id="gal-4" accept="image/*" onchange="loadGallery(event,4)" />
-        </div>
-        <div class="gallery-caption">
-          <div class="gallery-cap-label">Performance</div>
-          <div class="gallery-cap-title">Live on Stage</div>
-        </div>
+        <img src="images/gallery/gallery28.JPG" alt="Vanshikasri" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+        <div class="gallery-caption"><div class="gallery-cap-label">Bharathanatyam</div><div class="gallery-cap-title">Expressive Moment</div></div>
       </div>
 
-      <!-- Slot 6 -->
       <div class="gallery-item">
-        <div class="photo-box" style="width:100%;height:100%;"
-             onclick="document.getElementById('gal-5').click()">
-          <div class="photo-box-icon">⊕</div>
-          <div class="photo-box-label">With Guru<br/><span style="font-size:9px;opacity:.6;">Guru-Shishya moment</span></div>
-          <input type="file" id="gal-5" accept="image/*" onchange="loadGallery(event,5)" />
-        </div>
-        <div class="gallery-caption">
-          <div class="gallery-cap-label">Guru &amp; Student</div>
-          <div class="gallery-cap-title">The Sacred Bond</div>
-        </div>
+        <img src="images/gallery/gallery29.JPG" alt="Vanshikasri" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+        <div class="gallery-caption"><div class="gallery-cap-label">Bharathanatyam</div><div class="gallery-cap-title">Expressive Moment</div></div>
       </div>
 
     </div>
-
-    <p class="replace-hint">Replace placeholders with actual photos · JPG or PNG · Portrait orientation recommended</p>
   </div>
 </section>
 
@@ -1477,6 +1378,38 @@ select { cursor: pointer; }
 </section>
 
 
+<!-- ══════════════════════════════════════
+  PERFORMANCES & ACHIEVEMENTS
+══════════════════════════════════════ -->
+<section id="performances" class="section-wrap alt">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Performances &amp; Achievements</div>
+    <h2 class="section-title reveal">On stage &amp; on the podium</h2>
+    <div class="gold-rule reveal"></div>
+
+    <!-- Performances List -->
+    <div class="perf-list reveal">
+      <div class="perf-row">
+        <div class="perf-year">2026</div>
+        <div class="perf-info">
+          <div class="perf-title">BATA Competition · Senior Level Classical Category</div>
+          <div class="perf-venue">Sri Vigna Rajam Bhaje · Group Performance · Mar 22, 2026</div>
+        </div>
+        <div class="perf-tag">🥇 First Prize</div>
+      </div>
+      <div class="perf-row">
+        <div class="perf-year">2024</div>
+        <div class="perf-info">
+          <div class="perf-title">FOG Competition · Junior Level Classical Category</div>
+          <div class="perf-venue">Rama Chandra · Group Performance · Oct 2024</div>
+        </div>
+        <div class="perf-tag">🥇 First Prize</div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
 
 
 <!-- ══════════════════════════════════════
@@ -1495,10 +1428,10 @@ select { cursor: pointer; }
       <li><a href="#about">About Me</a></li>
       <li><a href="#journey">Journey</a></li>
       <li><a href="#guru">Guru &amp; School</a></li>
-      <li><a href="#performances">Achievements</a></li>
       <li><a href="#videos">Videos</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#bharathanatyam">The Art</a></li>
+      <li><a href="#performances">Achievements</a></li>
     </ul>
   </div>
   <div class="footer-col">
