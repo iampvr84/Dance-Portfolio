@@ -572,6 +572,7 @@ body {
   background: #fff;
   border: 1px solid var(--border);
   overflow: hidden;
+  position: relative;
 }
 .video-card::before {
   content: '';
@@ -580,37 +581,46 @@ body {
   top: 0; left: 0; right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--gold-500), var(--gold-100));
+  z-index: 1;
 }
-.video-card { position: relative; }
-.video-embed {
+/* Thumbnail click-to-play */
+.yt-thumb {
+  position: relative;
   width: 100%;
   aspect-ratio: 16/9;
+  cursor: pointer;
+  overflow: hidden;
   background: var(--teal-800);
-  display: block;
-  border: none;
 }
-.video-placeholder {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: var(--teal-800);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 12px; cursor: pointer;
-  border: none;
+.yt-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.3s;
 }
-.video-placeholder-icon {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: rgba(186,117,23,0.25);
-  border: 1px solid var(--gold-500);
+.yt-thumb:hover img { transform: scale(1.03); }
+.yt-play {
+  position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.video-placeholder-icon::after {
+.yt-play::before {
   content: '▶';
-  color: var(--gold-300); font-size: 18px; margin-left: 4px;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid var(--gold-300);
+  color: #fff;
+  font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  padding-left: 4px;
+  transition: background 0.2s, transform 0.2s;
 }
-.video-placeholder-label {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--teal-100); text-align: center;
+.yt-thumb:hover .yt-play::before {
+  background: rgba(186,117,23,0.85);
+  transform: scale(1.1);
+}
+.yt-thumb iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: none;
 }
 .video-meta { padding: 20px 24px 24px; }
 .video-event {
@@ -624,27 +634,6 @@ body {
 .video-desc {
   font-size: 15px; color: var(--warm-gray); line-height: 1.8;
 }
-.video-url-row {
-  display: flex; align-items: center; gap: 8px;
-  padding: 10px 16px;
-  background: var(--teal-50); border-top: 1px solid var(--teal-100);
-}
-.video-url-input {
-  flex: 1; font-family: var(--sans); font-size: 12px;
-  color: var(--text-dark); background: transparent;
-  border: none; border-bottom: 1px solid var(--teal-300);
-  padding: 6px 0; outline: none; transition: border-color 0.2s;
-  letter-spacing: 0;
-}
-.video-url-input::placeholder { color: var(--teal-300); font-size: 11px; }
-.video-url-input:focus { border-bottom-color: var(--gold-500); }
-.video-url-clear {
-  background: none; border: none; cursor: pointer;
-  font-size: 13px; color: var(--teal-300); padding: 4px 6px;
-  transition: color 0.2s; line-height: 1;
-}
-.video-url-clear:hover { color: var(--gold-500); }
-.video-embed-area { position: relative; }
 @media (max-width: 900px) {
   .videos-grid { grid-template-columns: 1fr; }
 }
@@ -1119,10 +1108,10 @@ select { cursor: pointer; }
 
     <div class="videos-grid reveal">
 
-
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/AJj7zwa9ugk" title="Kalinga Narthanam" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'AJj7zwa9ugk')">
+          <img src="https://img.youtube.com/vi/AJj7zwa9ugk/hqdefault.jpg" alt="Kalinga Narthanam" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">Indian Embassy · ICC · Nov 2025</div>
@@ -1132,8 +1121,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/lcQMgX_6bSk" title="Thirupugazh" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'lcQMgX_6bSk')">
+          <img src="https://img.youtube.com/vi/lcQMgX_6bSk/hqdefault.jpg" alt="Thirupugazh" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">Concord Murugan Temple · Oct 2025</div>
@@ -1143,8 +1133,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/cYDc_4nHv9g" title="Sringara Lahari" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'cYDc_4nHv9g')">
+          <img src="https://img.youtube.com/vi/cYDc_4nHv9g/hqdefault.jpg" alt="Sringara Lahari" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">May 2025</div>
@@ -1154,8 +1145,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/sIsuFCYmMhE" title="Krishnar Varnam" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'sIsuFCYmMhE')">
+          <img src="https://img.youtube.com/vi/sIsuFCYmMhE/hqdefault.jpg" alt="Krishnar Varnam" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">MANCA Competition · Apr 2025 · Senior Category</div>
@@ -1165,8 +1157,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/HLZQPIPQHTo" title="Sri Ramachandra Varnam" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'HLZQPIPQHTo')">
+          <img src="https://img.youtube.com/vi/HLZQPIPQHTo/hqdefault.jpg" alt="Sri Ramachandra Varnam" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">BATA Competition · Mar 2025 · Solo Junior Classical</div>
@@ -1176,8 +1169,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/IA-rbu8tPfw" title="Pranavakaram" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'IA-rbu8tPfw')">
+          <img src="https://img.youtube.com/vi/IA-rbu8tPfw/hqdefault.jpg" alt="Pranavakaram" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">BATA Competition · Mar 2025 · Group Junior Classical</div>
@@ -1186,10 +1180,10 @@ select { cursor: pointer; }
         </div>
       </div>
 
-
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/p0Jh4sHpBl4" title="Shankara Srigiri" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'p0Jh4sHpBl4')">
+          <img src="https://img.youtube.com/vi/p0Jh4sHpBl4/hqdefault.jpg" alt="Shankara Srigiri" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">OSAAT Competition · Sep 2024 · Solo Junior</div>
@@ -1199,8 +1193,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/TT2ECpF_AAg" title="Jayajaya Padmanaba" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'TT2ECpF_AAg')">
+          <img src="https://img.youtube.com/vi/TT2ECpF_AAg/hqdefault.jpg" alt="Jayajaya Padmanaba" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">OSAAT Competition · 2024 · Group Classical Junior</div>
@@ -1210,8 +1205,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/4Qn9DpVtx30" title="Shankara Srigiri" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'4Qn9DpVtx30')">
+          <img src="https://img.youtube.com/vi/4Qn9DpVtx30/hqdefault.jpg" alt="Shankara Srigiri" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">Kalpataru Sai Sanctuary · Ganesh Chathurthi</div>
@@ -1221,8 +1217,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/r9ETKGAGSAg" title="Thodai Mangalam" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'r9ETKGAGSAg')">
+          <img src="https://img.youtube.com/vi/r9ETKGAGSAg/hqdefault.jpg" alt="Thodai Mangalam" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">Balaji Temple · Jun 2024</div>
@@ -1232,8 +1229,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/PuKxHCsapuY" title="Varaharoopam" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'PuKxHCsapuY')">
+          <img src="https://img.youtube.com/vi/PuKxHCsapuY/hqdefault.jpg" alt="Varaharoopam" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">MANCA Competition · 2024 · Semi Classical Junior · James Logan Auditorium</div>
@@ -1243,8 +1241,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/xAs6Nuoa86Y" title="Jayajaya Padmanaba" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'xAs6Nuoa86Y')">
+          <img src="https://img.youtube.com/vi/xAs6Nuoa86Y/hqdefault.jpg" alt="Jayajaya Padmanaba" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">MANCA Competition · 2024 · Classical Junior · James Logan Auditorium</div>
@@ -1254,8 +1253,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/9rPqJrCUeQA" title="Parai Folk" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'9rPqJrCUeQA')">
+          <img src="https://img.youtube.com/vi/9rPqJrCUeQA/hqdefault.jpg" alt="Parai Folk" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">MANCA Competition · 2024 · Parai Folk Junior · James Logan Auditorium</div>
@@ -1265,8 +1265,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/YC0x2rLsebo" title="Shivan Kavadi" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'YC0x2rLsebo')">
+          <img src="https://img.youtube.com/vi/YC0x2rLsebo/hqdefault.jpg" alt="Shivan Kavadi" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">FOG Competition · Jan 2024</div>
@@ -1276,8 +1277,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/uBRXRNVdwco" title="Rasaali Jatheeswaram" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'uBRXRNVdwco')">
+          <img src="https://img.youtube.com/vi/uBRXRNVdwco/hqdefault.jpg" alt="Rasaali Jatheeswaram" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">Balaji Temple</div>
@@ -1287,8 +1289,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/ECm4tS-9yd4" title="Anandha Thandavam" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'ECm4tS-9yd4')">
+          <img src="https://img.youtube.com/vi/ECm4tS-9yd4/hqdefault.jpg" alt="Anandha Thandavam" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">FOG Competition · Aug 2023 · Junior Classical</div>
@@ -1298,8 +1301,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/uz03TStlo1M" title="Boshamboo" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'uz03TStlo1M')">
+          <img src="https://img.youtube.com/vi/uz03TStlo1M/hqdefault.jpg" alt="Boshamboo" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">2023</div>
@@ -1309,8 +1313,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/U36R7UMrJC4" title="Saraswathi Kavuthuvam" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'U36R7UMrJC4')">
+          <img src="https://img.youtube.com/vi/U36R7UMrJC4/hqdefault.jpg" alt="Saraswathi Kavuthuvam" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">2023</div>
@@ -1320,8 +1325,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/awELgOVKFmI" title="Kanjadhalayadhaakshi" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'awELgOVKFmI')">
+          <img src="https://img.youtube.com/vi/awELgOVKFmI/hqdefault.jpg" alt="Kanjadhalayadhaakshi" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">BATA Competition · Junior Classical</div>
@@ -1331,8 +1337,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/UvqVkWBHUrA" title="Kuravai" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'UvqVkWBHUrA')">
+          <img src="https://img.youtube.com/vi/UvqVkWBHUrA/hqdefault.jpg" alt="Kuravai" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">IACA Dance Competition · Junior Category</div>
@@ -1341,10 +1348,10 @@ select { cursor: pointer; }
         </div>
       </div>
 
-
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/uAkWXTi3MJs" title="Muralidhara Kavuthuvam" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'uAkWXTi3MJs')">
+          <img src="https://img.youtube.com/vi/uAkWXTi3MJs/hqdefault.jpg" alt="Muralidhara Kavuthuvam" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">2022</div>
@@ -1354,8 +1361,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/S2l1NU-i6yU" title="Ganesha Kirthi" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'S2l1NU-i6yU')">
+          <img src="https://img.youtube.com/vi/S2l1NU-i6yU/hqdefault.jpg" alt="Ganesha Kirthi" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">2021</div>
@@ -1365,8 +1373,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/TM43KwXsAhk" title="Murugan Sabtham" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'TM43KwXsAhk')">
+          <img src="https://img.youtube.com/vi/TM43KwXsAhk/hqdefault.jpg" alt="Murugan Sabtham" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">2021</div>
@@ -1376,8 +1385,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/SsiYAUvhwhE" title="Natesha Kavuthuvam" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'SsiYAUvhwhE')">
+          <img src="https://img.youtube.com/vi/SsiYAUvhwhE/hqdefault.jpg" alt="Natesha Kavuthuvam" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">Rajeshwari Temple · Mar 2020</div>
@@ -1387,8 +1397,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/cc8Orv2w4Js" title="Ganesha Kirthi" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'cc8Orv2w4Js')">
+          <img src="https://img.youtube.com/vi/cc8Orv2w4Js/hqdefault.jpg" alt="Ganesha Kirthi" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">Livermore Temple · 2019</div>
@@ -1398,8 +1409,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/KnCUln6xE9A" title="Pushpanjali" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'KnCUln6xE9A')">
+          <img src="https://img.youtube.com/vi/KnCUln6xE9A/hqdefault.jpg" alt="Pushpanjali" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">Annual Day · Sri Thillai Natya Palli · 2019</div>
@@ -1409,8 +1421,9 @@ select { cursor: pointer; }
       </div>
 
       <div class="video-card">
-        <div class="video-embed-area">
-          <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/jfWe9s8UGq8" title="Pushpanjali" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div class="yt-thumb" onclick="playYT(this,'jfWe9s8UGq8')">
+          <img src="https://img.youtube.com/vi/jfWe9s8UGq8/hqdefault.jpg" alt="Pushpanjali" loading="lazy">
+          <div class="yt-play"></div>
         </div>
         <div class="video-meta">
           <div class="video-event">Sai Parivaar · Milpitas · Apr 2019</div>
@@ -1775,6 +1788,11 @@ select { cursor: pointer; }
   SCRIPTS
 ══════════════════════════════════════ -->
 <script>
+  // ── Click-to-play YouTube thumbnail
+  function playYT(el, id) {
+    el.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>';
+  }
+
   // ── YouTube URL → embed
   function extractYouTubeId(url) {
     url = url.trim();
