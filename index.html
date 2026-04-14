@@ -1900,8 +1900,13 @@ select { cursor: pointer; }
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0 });
   revealEls.forEach(el => revealObserver.observe(el));
+  // Also trigger for any elements already in viewport on load
+  revealEls.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight) el.classList.add('visible');
+  });
 
   // ── Active nav link highlight
   const sections = document.querySelectorAll('section[id], div[id="top"]');
